@@ -1,0 +1,35 @@
+#navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    z-index: 10;
+    transition: margin 0.3s;
+}
+
+#navbar.away {
+    margin-top: -80px;
+}
+
+#navbar .container-fluid img {
+    height: 44px;
+}
+
+#navbar .collapse {
+    transition: padding 0.3s;
+}
+
+#navbar .collapse.show {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+#navbar ul li {
+    text-align: center;
+}
+
+@media screen and (min-width: 300px) {}
+
+@media screen and (min-width: 768px) {
+    #navbar #navcol-1 {
+        flex-direction: row-reverse;
+    }
+}

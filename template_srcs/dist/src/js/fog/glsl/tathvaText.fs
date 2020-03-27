@@ -1,0 +1,2 @@
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("precision highp float;\n#define GLSLIFY 1\n\nvarying float vWidth;\nvarying float vHeight;\n\nvarying vec2 vUv;\nvarying float now;\n\nvoid main() {\n  vec3 red = vec3(0.8, 0.05, 0.05);\n  vec3 black = vec3(0.1);\n\n  float threshold = step(50.0*sin((vUv.x+now*10.0)/400.0) + 70.0*sin((vUv.x+now*50.0)/200.0), vUv.y - vHeight/2.0);\n  vec3 color = red*threshold + black*(1.0 - threshold);\n\n  gl_FragColor = vec4(color, 1.0);\n}\n\n");

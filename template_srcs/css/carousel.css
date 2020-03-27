@@ -1,0 +1,27 @@
+#sec_gallery {
+    width: 100%;
+    padding-bottom: 20px !important;
+}
+
+#sec_gallery .txt-title {
+    line-height: 80px;
+    margin-bottom: 20px !important;
+}
+
+#sec_gallery .carousel-item {
+    width: 100%;
+    height: 100%;
+}
+
+#sec_gallery .carousel-inner {
+    height: 80vh;
+}
+
+#sec_gallery .carousel {}
+
+#sec_gallery .carousel .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
