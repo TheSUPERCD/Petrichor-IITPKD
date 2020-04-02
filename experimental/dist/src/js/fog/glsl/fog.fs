@@ -1,0 +1,2 @@
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("precision highp float;\n#define GLSLIFY 1\n\nuniform sampler2D tex;\n\nvarying vec3 vPosition;\nvarying vec2 vUv;\nvarying vec3 vColor;\nvarying float vBlink;\n\nvoid main() {\n  vec2 p = vUv * 2.0 - 1.0;\n\n  vec4 texColor = texture2D(tex, vUv);\n  vec3 color = (texColor.rgb - vBlink * length(p) * 0.2) * vColor;\n  float opacity = texColor.a*texColor.a/0.2;\n\n  gl_FragColor = vec4(color, opacity);\n}\n");

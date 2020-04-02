@@ -1,0 +1,155 @@
+#landing-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    filter: grayscale(1%);
+}
+
+#landing-section .brochure-btns {
+    display: grid;
+    width: auto;
+    grid-template-columns: 1fr 1fr;
+}
+
+#landing-section .brochure-btns:hover {
+    text-decoration: none;
+}
+
+#landing-section .brochure-btns div:first-child {
+    display: grid;
+    justify-content: right;
+}
+
+#landing-section .brochure-btns div:last-child {
+    display: grid;
+    justify-content: left;
+}
+
+#landing-section .view-brochure-btn {
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-radius: 30px 0 0 30px !important;
+    display: grid;
+    justify-content: right;
+    color: black;
+}
+
+#landing-section .brochure-btns .landing-button {
+    color: black;
+    width: 150px;
+}
+
+#landing-section .brochure-btns .landing-button:hover {
+    color: black;
+}
+
+#landing-section .save-brochure-btn {
+    border: 1px solid black;
+    border-radius: 0 30px 30px 0 !important;
+    color: black;
+}
+
+.landing-button {
+    height: 50px;
+    width: 200px;
+    transition: background-color 0.6s;
+    margin-top: 18px;
+}
+
+.plain:link {
+    text-decoration: none;
+}
+
+.landing-button:hover {
+    background-color: white !important;
+    color: black;
+    text-decoration: none;
+}
+
+#landing-section {
+    height: 140%;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+#landing-section .landing-img {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column-reverse;
+}
+
+#landing-section .textarea {
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 40px;
+}
+
+#landing-section .textarea p {
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#landing-section .textarea a {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+#landing-section .textarea .landing-button {
+    border-radius: 30px;
+    padding: 5px 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    background-color: transparent;
+    border: 1px solid #000000d2;
+    font-weight: 600;
+    color: black;
+}
+
+@media screen and (min-width: 300px) {
+    #landing-section .textarea p {
+        width: 300px;
+    }
+    #landing-section .landing-image {
+        height: 150%;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 740px) {
+    #landing-section {
+        height: 100%;
+    }
+    #landing-section .textarea p {
+        width: 700px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #navbar.navbar {
+        padding-left: 140px;
+    }
+}
+
+@media sreen and (min-width: 1200px) {
+    #landing-section .landing-img .textarea h2.txt-title {
+        display: none !important;
+    }
+    #landing-section .landing-img .textarea p.txt-body {
+        display: none;
+        width: 800px !important;
+    }
+}
