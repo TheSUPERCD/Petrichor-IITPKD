@@ -1,2 +1,0 @@
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#define GLSLIFY 1\nvarying vec2 vUv;\nuniform float time;\nuniform float width;\nuniform float height; \n\nvarying float now;\nvarying float vWidth;\nvarying float vHeight;\n\nvoid main()\n{\n    now = time;\n    vUv = uv;\n    vWidth = width;\n    vHeight = height;\n\n    vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );\n    gl_Position = projectionMatrix * mvPosition;\n}");
