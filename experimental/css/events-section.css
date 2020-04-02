@@ -21,10 +21,8 @@
     object-position: center;
 }
 
-#events-section .modal .modal-body p {}
 
 @media screen and (min-width: 300px) {
-    #events-section {}
     #events-section .contain {
         display: grid;
         grid-gap: 4px;
@@ -202,7 +200,6 @@
 }
 
 @media screen and (min-width: 1200px) {
-    #events-section {}
     #events-section .contain {
         width: 1080px;
         grid-template-columns: 1fr 1fr 1fr;

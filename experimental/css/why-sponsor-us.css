@@ -28,7 +28,6 @@
 }
 
 @media screen and (min-width: 300px) {
-    #why-sponsor-us-section {}
     #why-sponsor-us-section .description {
         width: 100%;
         padding-left: 1rem;
@@ -66,7 +65,7 @@
         font-size: 15px;
         color: rgb(87, 87, 87);
     }
-    #why-sponsor-us-section .and-more {}
+    
     #why-sponsor-us-section .extra-points {
         text-align: center;
         width: 300px;
@@ -77,7 +76,6 @@
 }
 
 @media screen and (min-width: 740px) {
-    #why-sponsor-us-section {}
     #why-sponsor-us-section .description {
         width: 720px;
     }

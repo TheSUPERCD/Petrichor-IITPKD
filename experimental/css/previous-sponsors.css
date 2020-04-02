@@ -31,11 +31,9 @@
     #previous-sponsors-section .logos .logos-group {
         flex-direction: row;
     }
-    #previous-sponsors-section {}
 }
 
 @media screen and (min-width: 1023px) {
-    #previous-sponsors-section {}
     #previous-sponsors-section .logos {
         width: 1000px;
         flex-direction: row;
