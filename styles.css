@@ -1,8 +1,4 @@
-.txt {
-  margin-bottom: 0.5em;
-  margin-top: 0.5em;
-}
-.txt-subhead {
+.contact-txt-subhead {
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
@@ -10,28 +6,28 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
 }
-.text-title {
+.contact-text-title {
   text-align: center;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: azure;
   background-color: black;
 }
-.col {
+.contact-col {
   padding: 20px;
 }
-.card {
+.contact-card {
   padding: 20px;
   border-color: black;
   border-width: 1mm;
   box-shadow: 2px 2px 3px #222;
 }
 
-.header {
+.contact-header {
   font-size: 1.5rem;
   text-align: center;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.card:hover {
+.contact-card:hover {
   border-color: gray;
 }
