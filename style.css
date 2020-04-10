@@ -1,98 +1,83 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap');
-*
-{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;  
-	font-family: 'Poppins', sans-serif; 
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-body
-{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	background: linear-gradient(0deg,#fff 50%,#2196f3); 
+.events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(0deg, #fff 50%, #2196f3);
 }
-.container
-{
-	max-width: 1000px;
-	position: relative;
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	transition: 0.5s;
+.container {
+  max-width: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: 0.5s;
 }
-.container .card .event-card
-{
-	position: relative;
-	width: 300px;
-	height: 600px;
-	background: #fff;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: 0.5s;
+.container .card {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
 }
-.container:hover .card .event-card
-{
-	filter: blur(5px);
-	transform: scale(0.7);
+.container:hover .card {
+  filter: blur(5px);
+  transform: scale(0.7);
 }
-.container .card .event-card:hover
-{
-	filter: blur(0px);
-	transform: scale(1);
+.container .card:hover {
+  filter: blur(0px);
+  transform: scale(1);
 }
-.container .card .event-card:before
-{
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: #fff;
-	z-index: 1;
-	transition: 0.5s;
+.container .card:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 1;
+  transition: 0.5s;
 }
-.container .card .event-card:hover:before
-{
-	background: #000;
-	transform: scaleY(1.15);
-	box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+.container .card:hover:before {
+  background: #000;
+  transform: scaleY(1.15);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-.container .card .event-card .content
-{
-	text-align: center;
-	z-index: 2;
-	padding: 0 20px;
-	transition: 0.5s;
+.container .card .content {
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+  transition: 0.5s;
 }
-.container .card .event-card:hover .content p
-{
-	color: green;
+.container .card:hover .content p {
+  color: green;
 }
-.container .card .event-card:hover .content h2
-{
-	color: red;
+.container .card:hover .content h2 {
+  color: red;
 }
-.container .card .event-card .content h2
-{
-	font-size: 2em;
+.container .card .content h2 {
+  font-size: 3em;
 }
-.container .card .event-card .content p
-{
-	font-size: 0.9em;
+.container .card .content p {
+  font-size: 0.9em;
 }
-.container .card .event-card .content a
-{
-	display: inline-block;
-	margin-top: 15px;
-	padding: 5px 10px;
-	background: #66ffff;
-	color: #cc6600;
-	text-decoration: none;
+.container .card .content a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
 }
-.container .card .event-card:hover .content a
-{
-	background: #ffffb3;
+.container .card:hover .content a {
+  background: #ffffb3;
 }
