@@ -60,7 +60,7 @@
   transform: scaleY(1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
-.events ..events container .card .content {
+.events .container .card .content {
   text-align: center;
   z-index: 2;
   padding: 0 20px;
@@ -93,6 +93,6 @@
   text-decoration: none;
   opacity: .7;
 }
-.events .container .card:hover .content a{
+.events .container .card:hover .content a {
   background: #ffffb3;
 }
