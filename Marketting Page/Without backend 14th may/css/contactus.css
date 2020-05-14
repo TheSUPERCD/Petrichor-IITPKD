@@ -1,0 +1,52 @@
+.Contact-us{
+  background: url(../images/backgrounds5.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-txt-subhead {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+.contact-text-title {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: azure;
+}
+.contact-col {
+  padding: 20px;
+  margin: 30px;
+}
+.contact-card {
+  padding: 20px;
+  height: 90%;
+  border-color: black;
+  border-width: 1mm;
+  box-shadow: 2px 2px 3px #222;
+}
+
+.contact-header {
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.contact-card:hover {
+  border-color: white;
+}
+@media only screen and (max-width: 680px)
+{
+  .card-header.contact-header
+  {
+      font-size: 13.1px;
+  }
+  .contact-txt-subhead.phone{
+    font-size: 11px;
+  }
+}

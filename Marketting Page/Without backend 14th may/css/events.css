@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url(../images/backgrounds5.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+.events .container {
+  max-width: 1000px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: 0.5s;
+}
+.events .container .card {
+  position: relative;
+  width: 300px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  background-image: url(../images/backgrounds5.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+.events .container:hover .card {
+  filter: blur(5px);
+  transform: scale(0.7);
+}
+.events .container .card:hover {
+  filter: blur(0px);
+  transform: scale(1);
+  opacity: 1;
+}
+.events .container .card:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: 0.5s;
+}
+.events .container .card:hover:before {
+  background: #146370;
+  transform: scaleY(1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.events ..events container .card .content {
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+  transition: 0.5s;
+}
+.events .container .card:hover .content p {
+  color: #fff;
+  font-weight: normal;
+}
+.events .container .card:hover .content h2 {
+  color: black;
+}
+.events .container .card .content h2 {
+  font-size: 3em;
+  color: #12B0CA;
+  opacity: .7;
+}
+.events .container .card .content p {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #3333ff;
+  opacity: .7;
+}
+.events .container .card .content a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
+.events .container .card:hover .content a{
+  background: #ffffb3;
+}

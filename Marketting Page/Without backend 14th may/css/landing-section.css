@@ -1,0 +1,108 @@
+#landing-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    filter: grayscale(1%);
+}
+
+#landing-section .brochure-btns .landing-button {
+    color: black;
+    width: 150px;
+}
+
+.landing-button {
+    height: 50px;
+    width: 200px;
+    transition: background-color 0.1s;
+    margin-top: 1px;
+}
+
+.plain:link {
+    text-decoration: none;
+}
+
+
+#landing-section .textarea .landing-button:hover {
+    text-decoration: none;
+    background-color: #2196f3;
+    box-shadow: 0 0 5px #2196f3,0 0 40px #2196f3,0 0 80px #2196f3;
+    transition-delay: 0.1s; 
+}
+
+#landing-section {
+    height: 140%;
+    width: 100%;
+    border-bottom: 2px solid black;
+}
+
+#landing-section .landing-img {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column-reverse;
+}
+
+#landing-section .textarea {
+    display: flex;
+    flex-flow: column;
+    padding-bottom: 40px;
+}
+
+
+#landing-section .textarea a {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+}
+
+#landing-section .textarea .landing-button {
+    background: top;
+    color: white;
+    border-radius: 17px;
+    padding: 5px 16px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-weight: 600;
+
+}
+
+#landing-section .textarea .landing-button:hover{
+    color: white;
+}
+
+#landing-section .landing-img .bg-vid{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 300px) {
+    #landing-section .landing-image {
+        height: 140%;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 740px) {
+    #landing-section {
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #navbar.navbar {
+        padding-left: 140px;
+    }
+}

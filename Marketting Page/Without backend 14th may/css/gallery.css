@@ -1,0 +1,123 @@
+
+.gallery{
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: url(../images/backgrounds5.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.gallery h2
+{
+  font-size: 200%;
+  font-family: sans-serif;
+  color: white;
+  position: absolute;
+  left: 50%;
+  top: 3%;
+  transform: translateX(-50%);
+}
+
+.slidershow{
+  width: 70%;
+  height: 60%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.middle{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+}
+.navigation{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.slides{
+  display: none;
+  width: 400%;
+  height: 100%;
+  display: flex;
+
+}
+
+.slide{
+  width: 25%;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: .5s;
+  animation-name: fade;
+  animation-duration: .5s;
+}
+
+.slide img{
+  height: 100%;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 47%;
+  width: auto;
+  margin-top: -22px;
+  padding: 14px;
+  color: blue;
+  font-weight: bold;
+  font-size: 30px;
+  transition: 0.6s ease;
+  border-radius: 0 10px 10px 0;
+  user-select: none;
+  background-color: #146370;
+}
+
+.next {
+  right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: lightblue;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: .5vh;
+  width: 3vw;
+  margin: 0 4px;
+  background-color: #717171;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+  border-radius: 3px;
+}
+
+.active, .dot:hover {
+  background-color: none ;
+  color: #9196f3;
+}
+
+/* Fading animation */
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}

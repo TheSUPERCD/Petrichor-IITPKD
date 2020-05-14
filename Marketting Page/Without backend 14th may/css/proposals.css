@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
+.proposals{
+	background-image: url(../images/backgrounds5.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.Proposals-txt-title{
+	position: relative;
+	top: 110px;
+	text-align: center;
+  	font-family: "Century Gothic";
+  	color: azure;
+}
+.pro-img{
+	text-align: center;
+}
+.proposals .pro-img img{
+	width: 90%;
+	height: 90%;
+	position: relative;
+	top: 70px;
+}

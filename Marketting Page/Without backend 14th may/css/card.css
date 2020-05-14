@@ -1,0 +1,91 @@
+.sponser .card1{
+	position: relative;
+	display: flex;
+	background: #060c21;
+	justify-content: center;
+	box-shadow: 3px 2px #ff0057;
+	align-items: center;
+}
+.sponser .card2{
+	position: relative;
+	display: flex;
+	background: #060c21;
+	justify-content: center;
+	box-shadow: 3px 2px #e64a19;
+	align-items: center;
+}
+.sponser .card3{
+	position: relative;
+	display: flex;
+	background: #060c21;
+	justify-content: center;
+	box-shadow: 3px 2px #00bcd4;
+	align-items: center;
+}
+.sponser .card4{
+	position: relative;
+	display: flex;
+	background: #060c21;
+	justify-content: center;
+	box-shadow: 3px 2px #89ff00;
+	align-items: center;
+}
+.sponser .card5{
+	position: relative;
+	display: flex;
+	background: #060c21;
+	justify-content: center;
+	box-shadow: 3px 2px #e91e63;
+	align-items: center;
+}
+
+.sponser .card:after{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.05);
+	pointer-events: none;
+}
+
+
+.sponser .container{
+	position: relative;
+	top: 40px;
+}
+
+.sponser h2{
+	position: relative;
+	text-align: center;
+	top: 20px;
+	color: azure;
+}
+.sponser .card-title{
+	text-align: center;
+	margin: 0 0 10px;
+	padding: 0px;
+	font-weight: 500;
+	font-size: 22px;
+	color: azure;
+}
+.sponser .card-text{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	color: azure;
+}
+
+.sponser{
+  background-image: url(../images/backgrounds5.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;;
+}
+@media screen and (max-width: 1200px){
+	.sponser .card{
+		margin-bottom: 4px;
+	}
+}

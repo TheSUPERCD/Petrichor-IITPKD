@@ -1,0 +1,209 @@
+/* All Colors + Accents */
+
+.bg-light {
+    /*background-color: #fafafa;*/
+    background-color: white;
+}
+
+.bg-dark {
+    background-color: #151515;
+}
+
+.bg-primary {
+    background-color: #2f80ed;
+}
+
+.bg-accent {
+    background-color: #eb4666;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+/* Beta color scheme */
+
+.palette-maj-main {
+    background-color: #fafafa !important;
+    color: #3c332c;
+}
+
+.palette-maj-alt {
+    background-color: #ffffff;
+    color: #231919;
+}
+
+.palette-min-main {
+    background-color: #263238;
+    color: #f6f0f0;
+}
+
+.palette-min-alt {
+    background-color: black;
+    color: #f6f0f0;
+}
+
+.palette-primary {
+    background-color: #1976d2;
+    color: #f6f0f0;
+}
+
+.palette-accent {
+    background-color: #e91e63;
+    color: #f6f0f0;
+}
+
+/* All Text Styles */
+
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap");
+.txt {
+    font-family: "Open Sans", "Roboto", Helvetica, Arial, sans-serif;
+}
+
+.txt-light {
+    color: #fffffff5;
+}
+
+.txt-dark {
+    color: #302f2f;
+}
+
+.txt-accent {
+    color: #eb4666;
+}
+
+.txt-title {
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.txt-subhead {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+}
+
+.txt-body {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    text-align: justify;
+    letter-spacing: .04em;
+    word-spacing: 0.04em;
+}
+
+.txt-button-label {
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    font-size: 15px;
+}
+
+.txt {
+    margin-bottom: 0.5em !important;
+    /* margin-top: .5em!important; */
+}
+
+.txt.extra-points {
+    margin-bottom: 1em !important;
+}
+
+.txt.and-more {
+    font-weight: 300;
+}
+
+.txt.txt-title.ribbon {
+    margin-bottom: 48px !important;
+    margin-top: 0 !important;
+}
+
+.txt.and-more,
+.txt.imperative {
+    margin-top: 32px !important;
+    margin-bottom: 32px !important;
+}
+
+.cardy {
+    margin-top: 18px !important;
+}
+
+.contact-card .card-body:nth-child(2) {
+    margin-top: 0 !important;
+}
+
+section {
+    padding-bottom: 48px !important;
+    overflow: hidden;
+}
+
+#navbar ul {
+    margin-bottom: 0 !important;
+}
+
+#navbar {
+    min-height: 60px;
+}
+
+/*
+    For all the contact files
+    Remember that contact goes inside card.
+     Do check before inserting.
+*/
+
+.contact {
+    text-align: center;
+}
+
+.contact {
+    text-align: center;
+}
+
+.contact .name {
+    font-size: 18px;
+    line-height: 24px;
+    color: #ff008a;
+    font-weight: 400;
+}
+
+.contact .email {
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.contact .number {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+hr {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media screen and (min-width: 300px) {
+    #about-us-section {
+        padding-top: 48px;
+    }
+    .hide-phone {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 740px) {
+    .hide-phone {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #about-us-section {
+        padding-bottom: 0 !important;
+        padding-top: 0 !important;
+    }
+}
