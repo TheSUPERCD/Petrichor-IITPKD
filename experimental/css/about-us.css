@@ -11,6 +11,14 @@
     margin-bottom: 0;
 }
 
+#about-us-section .contain {
+    background-color: rgb(30, 30, 30);
+}
+
+#about-us-section .contain .txt {
+    color: white;
+}
+
 @media screen and (min-width: 300px) {
     #about-us-section .contain .photo {
         display: none;

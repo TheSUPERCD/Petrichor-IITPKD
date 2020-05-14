@@ -116,7 +116,21 @@
     background-color: transparent;
     border: 1px solid #000000d2;
     font-weight: 600;
+    color: yellow;
+}
+
+#landing-section .textarea .landing-button:hover{
     color: black;
+}
+
+#landing-section .landing-img .bg-vid{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    object-fit: cover;
 }
 
 @media screen and (min-width: 300px) {
@@ -124,7 +138,7 @@
         width: 300px;
     }
     #landing-section .landing-image {
-        height: 150%;
+        height: 140%;
         width: 100%;
     }
 }
@@ -144,7 +158,7 @@
     }
 }
 
-@media sreen and (min-width: 1200px) {
+/* @media screen and (min-width: 1200px) {
     #landing-section .landing-img .textarea h2.txt-title {
         display: none !important;
     }
@@ -152,4 +166,4 @@
         display: none;
         width: 800px !important;
     }
-}
+} */
