@@ -203,7 +203,7 @@
   left: 50%;
   top: 100%;
   bottom: 100%;
-  visibility: hidden;
+  visibility: visible;
   opacity: 0;
   z-index: 9999;
   -webkit-transform: translate3d(0, 0, 0);
