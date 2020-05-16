@@ -36,10 +36,9 @@ body
 .about img
 {
 	position: relative;
-	shape-outside: polygon(0 0,96% 0,67% 40%,124% 100%,0 100%);
+	shape-outside: polygon(0 0,98% 0,67% 40%,124% 100%,0 100%);
 	float: left;
 	min-height: 100vh;
-	max-width:  100%;
 	background-image: url(../images/backgrounds5.jpg);
 	background-repeat: no-repeat;
     background-attachment: fixed;
@@ -53,7 +52,7 @@ body
 	top: 100px;
     padding: 20px 100px;
     color: white;
-    font-size: 18px;
+    font-size: 1.2rem;
 	font-family: 'gothic' !important;     
 }
 
@@ -84,7 +83,7 @@ body
 {
 	.about p
 	{
-		font-size: 14px;
+		font-size: 1.7vw;
 		padding: 0 50px;
 	}
 
@@ -116,7 +115,7 @@ body
 	.about p
 	{
 		top: 100px;
-		font-size: 12px;
+		font-size: 1.6vw;
 		padding: 10px 100px;
 	}
 }
@@ -125,7 +124,7 @@ body
 {
 	.heading
 	{
-		font-size: 18px;
+		font-size: 3.5vh;
 		top: 20px;
 		left: 25px;
 	}
@@ -140,11 +139,8 @@ body
 	.about p
 	{
 		top: 30px;
-		font-size: 10px;
+		font-size: 1.8vh;
 		padding: 0px 25px;
-	}
-	.mobile{
-		visibility: hidden;
 	}
 }
 
