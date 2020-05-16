@@ -1,5 +1,6 @@
 
 .gallery{
+  font-family: sans-serif;
   position: relative;
   margin: 0;
   padding: 0;
@@ -8,12 +9,11 @@
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: 130vh;
 }
 .gallery h2
 {
-  font-size: 200%;
-  font-family: sans-serif;
+  font-size: 250%;
   color: white;
   position: absolute;
   left: 50%;
@@ -23,14 +23,14 @@
 
 .slidershow{
   width: 70%;
-  height: 60%;
+  height: 50%;
   overflow: hidden;
   border-radius: 10px;
 }
 
 .middle{
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   transform: translate(-50%,-50%);
 
@@ -67,7 +67,7 @@
   transform: translate(-50%,-50%);
 }
 
-/* Next & previous buttons */
+
 .prev, .next {
   cursor: pointer;
   position: absolute;
@@ -75,13 +75,12 @@
   width: auto;
   margin-top: -22px;
   padding: 14px;
-  color: blue;
+  color: #FFF !important;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 200%;
   transition: 0.6s ease;
   border-radius: 0 10px 10px 0;
   user-select: none;
-  background-color: #146370;
 }
 
 .next {
@@ -89,12 +88,12 @@
   border-radius: 10px 0 0 10px;
 }
 
-/* On hover, add a black background color with a little bit see-through */
 .prev:hover, .next:hover {
-  background-color: lightblue;
+  background-color: blue;
+  opacity: .5;
 }
 
-/* The dots/bullets/indicators */
+
 .dot {
   cursor: pointer;
   height: .5vh;
@@ -107,11 +106,9 @@
 }
 
 .active, .dot:hover {
-  background-color: none ;
-  color: #9196f3;
+  background-color: darkgrey ;
 }
 
-/* Fading animation */
 @-webkit-keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
@@ -121,3 +118,11 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+
+@media only screen and (max-width: 768px) 
+{
+  .slidershow{
+    width: 98%;
+  }
+}
+

@@ -22,11 +22,13 @@ body
 
 .heading
 {
-	font-size: 30px;
+	font-size: 35px;
+	font-family: 'gothic' !important;
+	font-weight: 900;
 	color: white;
 	position: relative;
 	top: 50px;
-	left: 350px;
+	left: 330px;
 	height: 30px;
 	width: 130px;
 }
@@ -34,9 +36,10 @@ body
 .about img
 {
 	position: relative;
-	shape-outside: polygon(0 0,100% 0,67% 40%,125% 100%,0 100%);
+	shape-outside: polygon(0 0,96% 0,67% 40%,124% 100%,0 100%);
 	float: left;
-	height: 100%;
+	min-height: 100vh;
+	max-width:  100%;
 	background-image: url(../images/backgrounds5.jpg);
 	background-repeat: no-repeat;
     background-attachment: fixed;
@@ -48,17 +51,17 @@ body
 {   
 	position: relative;
 	top: 100px;
-    padding: 20px 50px;
+    padding: 20px 100px;
     color: white;
-    font-size: 17px;
-    font-family: "Roboto",sans-serif;      
+    font-size: 18px;
+	font-family: 'gothic' !important;     
 }
 
 @media only screen and (max-height: 680px)
 {
 	.about img
 	{
-		shape-outside: polygon(0 0,470px 0,320px 255px,610px 100vh,0 100vh);
+		shape-outside: polygon(0 0,530px 0,365px 275px,640px 100vh,0 100vh);
 	}
 }
 
@@ -67,7 +70,7 @@ body
 {
 	.about p
 	{
-		font-size: 14px;
+		font-size: 15px;
 	}
 
 	.heading
@@ -81,7 +84,8 @@ body
 {
 	.about p
 	{
-		font-size: 13px;
+		font-size: 14px;
+		padding: 0 50px;
 	}
 
 	.about img
@@ -122,7 +126,7 @@ body
 	.heading
 	{
 		font-size: 18px;
-		top: 30px;
+		top: 20px;
 		left: 25px;
 	}
 
@@ -130,14 +134,13 @@ body
 	.about img
 	{
 		position: absolute;
-		width:  100%;
 		height: 100%;
 	}
 
 	.about p
 	{
-		top: 40px;
-		font-size: 12.4px;
+		top: 30px;
+		font-size: 10px;
 		padding: 0px 25px;
 	}
 	.mobile{
