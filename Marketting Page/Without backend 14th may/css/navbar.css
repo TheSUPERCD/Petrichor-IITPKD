@@ -6,11 +6,12 @@ body {
 #navbar {
     padding-top: 0;
     padding-bottom: 0;
-    z-index: 10;
+    z-index: 1;
     transition: margin 0.3s;
     background: rgba(0,0,0,0);
     background: transparent;
 }
+
 .three-bar{
   width: 25px;
   height: 2px;
