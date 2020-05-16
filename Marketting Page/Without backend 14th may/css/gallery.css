@@ -105,10 +105,6 @@
   border-radius: 3px;
 }
 
-.active, .dot:hover {
-  background-color: darkgrey ;
-}
-
 @-webkit-keyframes fade {
   from {opacity: .4}
   to {opacity: 1}
