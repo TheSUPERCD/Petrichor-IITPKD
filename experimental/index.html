@@ -922,7 +922,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script>
-        setTimeout(function(){$('#preloader').remove();}, 2500);
+        setTimeout(function(){$('#preloader').fadeOut(300, function(){
+            $('#preloader').remove();
+        })}, 2500);
     </script>
 
 </body>
