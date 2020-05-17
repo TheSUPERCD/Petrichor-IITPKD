@@ -203,7 +203,7 @@
   left: 50%;
   top: 100%;
   bottom: 100%;
-  visibility: visible;
+  visibility: hidden;
   opacity: 0;
   z-index: 9999;
   -webkit-transform: translate3d(0, 0, 0);
@@ -244,4 +244,12 @@
   transform: translate(-50%, 0);
   opacity: 1;
   visibility: visible;
+}
+
+@media only screen and (max-width: 768px) 
+{
+  .social hr
+  {
+    width:75%;
+  }
 }
