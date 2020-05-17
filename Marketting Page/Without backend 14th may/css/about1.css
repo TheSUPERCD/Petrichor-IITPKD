@@ -36,7 +36,7 @@ body
 .about img
 {
 	position: relative;
-	shape-outside: polygon(0 0,98% 0,67% 40.25%,124% 100%,0 100%);
+	shape-outside: polygon(0 0,98% 0,67% 40%,124% 100%,0 100%);
 	float: left;
 	min-height: 100vh;
 	background-image: url(../images/backgrounds5.jpg);
@@ -60,7 +60,7 @@ body
 {
 	.about img
 	{
-		shape-outside: polygon(0 0,530px 0,365px 290px,640px 100vh,0 100vh);
+		shape-outside: polygon(0 0,530px 0,365px 275px,640px 100vh,0 100vh);
 	}
 }
 
