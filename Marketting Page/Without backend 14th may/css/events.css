@@ -5,19 +5,38 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+.event-title {
+  text-align: center;
+  font-family: "gothic";
+  color: azure
+}
 .events {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-image: url(../images/backgrounds5.jpg);
+  min-height: 75vh;
+
+}
+.events-page{
+    background-image: url("../images/backgrounds5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
+.event-image img{
+  border: 3px solid transparent;
+  padding: 1px;
+  border-image: url(../images/cultural.jpg) 80 stretch;  
+}
+.events#blur.active
+{
+  filter: blur(20px);
+  pointer-events: none;
+  user-select: none;
+}
 .events .container {
-  max-width: 1000px;
+  max-width: 1500px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -26,13 +45,16 @@
 }
 .events .container .card {
   position: relative;
-  width: 300px;
-  height: 600px;
+  width: 350px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: 0.5s;
-  background-image: url(../images/backgrounds5.jpg);
+  border: 2px solid transparent;
+  border-image: url(../images/cultural.jpg) 80 stretch;
+  margin: 5px;
+  background-image: url("../images/backgrounds5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -65,17 +87,20 @@
   z-index: 2;
   padding: 0 20px;
   transition: 0.5s;
+  color: azure;
 }
 .events .container .card:hover .content p {
-  color: #fff;
+  color: azure;
   font-weight: normal;
 }
 .events .container .card:hover .content h2 {
-  color: black;
+  color: #12B0CA;
+  text-shadow: 1px 2px red;
 }
 .events .container .card .content h2 {
-  font-size: 3em;
+  font-size: 2em;
   color: #12B0CA;
+  text-shadow: 2px 2px orange;
   opacity: .7;
 }
 .events .container .card .content p {
@@ -91,8 +116,182 @@
   background: #66ffff;
   color: #cc6600;
   text-decoration: none;
+  border-radius: 3px;
   opacity: .7;
 }
 .events .container .card:hover .content a {
   background: #ffffb3;
+}
+#cultural
+{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px;
+  padding: 50px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+  background-image: url("../images/cultural.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+
+}
+
+#cultural.active
+{
+  top: 40%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+  z-index: 1;
+}
+#cultural.active p
+{
+  font-weight: bold;
+    color: black;
+    opacity: 0.7;
+} 
+#technical
+{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px;
+  padding: 50px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+  background-image: url("../images/tech.jpg");
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-size: cover; 
+  background-position: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+#technical.active
+{
+  top: 40%;
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  transition: 0.5s;
+}
+#technical.active p
+{
+  font-weight: bold;
+    color: black;
+    opacity: 1;
+}
+#workshop
+{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px;
+  padding: 50px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+  background-image: url("../images/workshop.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+#workshop.active
+{
+  top: 40%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+  z-index: 1;
+}
+#workshop.active p
+{
+  font-weight: bold;
+    color: black;
+    opacity: 1;
+}
+#social
+{
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 600px;
+  padding: 50px;
+  box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+  background-image: url("../images/social_initiative.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+}
+#social.active
+{
+  top: 40%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+  z-index: 1;
+}
+#social.active p
+{
+  font-weight: bold;
+  color: black;
+  opacity: 1;
+}
+#cultural a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: 1;
+}
+#technical a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
+#workshop a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
+#social a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
+@media only screen and (max-width: 768px) {
+  #social, #workshop, #technical, #cultural{
+    width: 75%;
+    height: auto;
+    font-size: 12px;
+  }
 }
