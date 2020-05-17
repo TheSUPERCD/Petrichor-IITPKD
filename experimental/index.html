@@ -10,6 +10,11 @@
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     
+    <link rel="stylesheet" href="./css/preloader.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="./js/pace.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-bez@1.0.11/src/jquery.bez.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 
     <link rel="stylesheet" media="all" onload="if(media!='all')media='all'" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" media="all" onload="if(media!='all')media='all'" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
@@ -34,7 +39,27 @@
 
 <body>
     <!-- Make a section tag here for one of the sections and work on it-->
+    <!-- PRELOADER -->
+    <div id="preloader">
+        <div class="cp">
+            <b>PETRICHOR 2020</b>
+        </div>
+        <div class="loading">
+            LOADING
+        </div>
+    </div>
+    <script>
 
+        paceOptions = {
+        document: true,
+        eventLag: false
+        };
+
+        Pace.on('done', function() {
+        $('#preloader').delay(200).remove();
+        });
+
+    </script>
     <!-- NAVIGATION BAR -->
     <nav id="navbar" class="py-2 navbar transparent navbar-expand-lg" data-aos="slide-down" style="position: fixed;width: 100%;">
         <div class="container-fluid">
