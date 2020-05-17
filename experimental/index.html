@@ -11,10 +11,10 @@
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     
     <link rel="stylesheet" href="./css/preloader.css">
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./js/pace.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-bez@1.0.11/src/jquery.bez.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-bez@1.0.11/src/jquery.bez.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script> -->
 
     <link rel="stylesheet" media="all" onload="if(media!='all')media='all'" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" media="all" onload="if(media!='all')media='all'" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
@@ -41,14 +41,14 @@
     <!-- Make a section tag here for one of the sections and work on it-->
     <!-- PRELOADER -->
     <div id="preloader">
-        <div class="cp">
+        <!-- <div class="cp">
             <b>PETRICHOR 2020</b>
-        </div>
+        </div> -->
         <div class="loading">
-            LOADING
+            LOADING...
         </div>
     </div>
-    <script>
+    <!-- <script>
 
         paceOptions = {
         document: true,
@@ -59,7 +59,7 @@
         $('#preloader').delay(200).remove();
         });
 
-    </script>
+    </script> -->
     <!-- NAVIGATION BAR -->
     <nav id="navbar" class="py-2 navbar transparent navbar-expand-lg" data-aos="slide-down" style="position: fixed;width: 100%;">
         <div class="container-fluid">
@@ -917,11 +917,13 @@
 
     <!-- FOOTER -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.js"></script>
     <script src="./js/bs-animation.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script>
+        setTimeout(function(){$('#preloader').remove();}, 2500);
+    </script>
 
 </body>
 
