@@ -7,9 +7,10 @@ body {
     padding-top: 0;
     padding-bottom: 0;
     z-index: 1;
-    transition: margin 0.3s;
+    transition: margin 1s;
     background: rgba(0,0,0,0);
     background: transparent;
+    transition: background-color 0.4s;
 }
 
 .three-bar{
@@ -101,9 +102,17 @@ a.nav-link{
   transition: 0.5s;
   transition-delay: 0.5s;
 }
+#navbar .nav-logo{
+  height: 70px;
+  width: auto; 
+}
 
-
-@media screen and (min-width: 300px) {}
+@media screen and (max-width: 992px) {
+    #navbar .nav-logo{
+      width: auto;
+      height: 60px;
+    }
+}
 
 @media screen and (min-width: 768px) {
     #navbar #navcol-1 {

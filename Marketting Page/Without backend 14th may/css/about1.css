@@ -90,6 +90,7 @@ body
 	.about img
 	{
 		position: absolute;
+		top: -50px;
 	}
 
 	.heading

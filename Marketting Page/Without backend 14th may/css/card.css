@@ -57,7 +57,8 @@
 }
 
 .sponser h2{
-	font-family: 'gothic' !important;
+	font-family: 'gothic' !important;	
+  	font-weight: 900;
 	position: relative;
 	text-align: center;
 	top: 20px;
