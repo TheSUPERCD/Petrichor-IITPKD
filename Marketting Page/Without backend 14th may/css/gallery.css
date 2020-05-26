@@ -126,21 +126,15 @@
 
 @media only screen and (max-width: 768px) 
 {
-  .slidershow{
-    width: 98%;
-  }
-}
-@media only screen and (max-width: 768px) 
-{
   .gallery h2
   {
     font-size: 3.5vh;
   }
-.slidershow{
-  width: 90%;
-  height: 60%;
+.slidershow
+  {
+  width: 98%;
+  height: 75vw;
   overflow: hidden;
-  border-radius: 10px;
-}
+  }
 }
 
