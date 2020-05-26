@@ -1,5 +1,5 @@
 
-.gallery{  
+.gallery{
   position: relative;
   margin: 0;
   padding: 0;
@@ -12,27 +12,20 @@
 }
 .gallery h2
 {
- /* font-family: 'gothic' !important;
-  text-align: center;
-  font-weight: 900;
-  font-size: 250%;
-  color: white;
+  font-family: 'gothic' !important;
+  font-size: 35px;
+  color: azure;
   position: absolute;
   left: 50%;
   top: 3%;
-  transform: translateX(-50%);*/
-  text-align: center;
-  font-family: "gothic";
-  color: azure;
   font-weight: 900;
-  font-size: 35px;
+  transform: translateX(-50%);
 }
 
 .slidershow{
   width: 70%;
   height: 60%;
   overflow: hidden;
-  border-radius: 10px;
 }
 
 .middle{
@@ -99,9 +92,7 @@
   background-color: #2F6EC0;
   opacity: .5;
 }
-.gallery span.dot.active{
-  background-color: white;
-}
+
 
 .dot {
   cursor: pointer;
@@ -112,6 +103,10 @@
   display: inline-block;
   transition: background-color 0.6s ease;
   border-radius: 3px;
+}
+
+.active, .dot:hover {
+  background-color: darkgrey ;
 }
 
 @-webkit-keyframes fade {
@@ -128,19 +123,7 @@
 {
   .slidershow{
     width: 98%;
+    height: 75vw;
   }
-}
-@media only screen and (max-width: 768px) 
-{
-  .gallery h2
-  {
-    font-size: 3.5vh;
-  }
-.slidershow{
-  width: 90%;
-  height: 60%;
-  overflow: hidden;
-  border-radius: 10px;
-}
 }
 

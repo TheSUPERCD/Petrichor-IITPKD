@@ -37,7 +37,6 @@
   margin: 60px auto;
   position: relative;
   top: 85%;
-  margin: 0.5px;
 }
 
 .social hr{
@@ -47,11 +46,11 @@
   color:gray;
   background-color:gray;
   position: relative;
-  top: -30px;
+  top: -20px;
 }
 
 .social h2{
-  top: -10px;
+  top: 0px;
   font-size: 1.2em;
   color:white;
   font-style: bold;
@@ -92,7 +91,7 @@
   padding: 7px 0px;
   color: white;
   margin: 5px;
-  top: 5px;
+  top: 15px;
   background-color: #004eb2;
   /* Color each button differently */
 
@@ -253,8 +252,13 @@
   {
     width:75%;
   }
-  .social-icon{
-    width: 28px;
-    height: 30px;
+  .social-icon
+  {
+    width: 30px;
+    height: 28.5px;
+  }
+  .social a 
+  {
+    font-size: .75em;
   }
 }
