@@ -3,7 +3,7 @@ $(document).ready(function() {
     // AOS Element animation on scroll preferences
 
     AOS.init({
-        disable: 'mobile'
+
     });
     $('[data-bs-hover-animate]')
         .mouseenter(function() {
