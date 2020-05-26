@@ -37,6 +37,7 @@
   margin: 60px auto;
   position: relative;
   top: 85%;
+  margin: 0.5px;
 }
 
 .social hr{
@@ -251,5 +252,9 @@
   .social hr
   {
     width:75%;
+  }
+  .social-icon{
+    width: 28px;
+    height: 30px;
   }
 }

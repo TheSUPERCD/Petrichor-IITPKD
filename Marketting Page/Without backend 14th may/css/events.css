@@ -10,6 +10,7 @@
   font-family: "gothic";
   color: azure;
   font-weight: 900;
+  font-size: 35px;
 }
 .events {
   display: flex;
@@ -19,6 +20,7 @@
 
 }
 .events-page{
+  background-color: #e6eef9;
     background-image: url("../images/backgrounds5.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -155,9 +157,9 @@
 #cultural.active p
 {
   font-weight: bold;
- color: white;
-    text-shadow: 2px 2px black;
-    opacity: 1;
+  color: white;
+  text-shadow: 2px 2px black;
+  opacity: 1;
 } 
 #technical
 {
@@ -306,4 +308,18 @@
     height: 75%;
     font-size: 12px;
   }
+}
+@media only screen and (max-width: 768px) 
+{
+  .event-title
+  {
+    font-size: 3.5vh;
+  }
+  .events .container .card {
+  position: relative;
+  width: 280px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+}
 }

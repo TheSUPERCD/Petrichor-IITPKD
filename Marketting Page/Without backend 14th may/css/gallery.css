@@ -12,14 +12,20 @@
 }
 .gallery h2
 {
-  font-family: 'gothic' !important;
+ /* font-family: 'gothic' !important;
+  text-align: center;
   font-weight: 900;
   font-size: 250%;
   color: white;
   position: absolute;
   left: 50%;
   top: 3%;
-  transform: translateX(-50%);
+  transform: translateX(-50%);*/
+  text-align: center;
+  font-family: "gothic";
+  color: azure;
+  font-weight: 900;
+  font-size: 35px;
 }
 
 .slidershow{
@@ -124,5 +130,17 @@
     width: 98%;
   }
 }
-
+@media only screen and (max-width: 768px) 
+{
+  .gallery h2
+  {
+    font-size: 3.5vh;
+  }
+.slidershow{
+  width: 90%;
+  height: 60%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+}
 
