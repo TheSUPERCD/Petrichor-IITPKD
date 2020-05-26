@@ -2,9 +2,7 @@ $(document).ready(function() {
 
     // AOS Element animation on scroll preferences
 
-    AOS.init({
-
-    });
+    AOS.init();
     $('[data-bs-hover-animate]')
         .mouseenter(function() {
             var elem = $(this);

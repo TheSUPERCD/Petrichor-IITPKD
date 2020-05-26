@@ -113,7 +113,7 @@
             </div>
             <div class="expectations">Transcending your expectations</div>
 
-            <a class="plain" href="documents/Marketing_brochure_final.pdf" download style="background: transparent;" data-aos="fade-up">
+            <a class="plain" href="documents/Marketing_brochure_final.pdf" download style="background: transparent;">
                 <button class="landing-button txt-subhead" >BROCHURE</button>
             </a>
             </div>
@@ -366,7 +366,7 @@
 
 
 
-        <div class="social" data-aos="fade-up" >
+        <div class="social">
         <hr>
         <h2>FOLLOW US ON</h2>
 
@@ -390,7 +390,9 @@
     </section>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+        AOS.init({
+            startEvent: 'load'
+        });
     </script>
 
 
