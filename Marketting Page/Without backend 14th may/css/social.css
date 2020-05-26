@@ -46,11 +46,11 @@
   color:gray;
   background-color:gray;
   position: relative;
-  top: -20px;
+  top: -10px;
 }
 
 .social h2{
-  top: 0px;
+  top: 20px;
   font-size: 1.2em;
   color:white;
   font-style: bold;
@@ -91,7 +91,7 @@
   padding: 7px 0px;
   color: white;
   margin: 5px;
-  top: 15px;
+  top: 30px;
   background-color: #004eb2;
   /* Color each button differently */
 
