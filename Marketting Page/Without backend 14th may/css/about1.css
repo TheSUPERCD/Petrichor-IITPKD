@@ -1,4 +1,4 @@
-body
+/*/*body
 {
 	overflow-x: hidden;
 }
@@ -7,6 +7,7 @@ body
 {
 	margin: 0;
 	height: 100%;
+	background-color: #f03eef;
 	background-image: url(../images/backgrounds5.jpg);
 	background-repeat: no-repeat;
     background-attachment: fixed;
@@ -26,6 +27,7 @@ body
 	font-family: 'gothic' !important;
 	font-weight: 900;
 	color: white;
+	/*color: black;
 	position: relative;
 	top: 50px;
 	left: 330px;
@@ -147,3 +149,157 @@ body
 
 
 
+*/
+
+body
+{
+	overflow-x: hidden;
+}
+
+.about-us-section
+{
+	margin: 0;
+	height: 100vh;
+	background-image: url(../images/backgrounds5.jpg);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.about
+{
+	position: relative;
+	height: 100%;
+}
+
+.heading
+{
+	font-size: 35px;
+	font-family: 'gothic' !important;
+	font-weight: 900;
+	color: white;
+	position: relative;
+	top: 50px;
+	left: 330px;
+	height: 30px;
+	width: 130px;
+}
+
+.about img
+{
+	position: relative;
+	shape-outside: polygon(0 0,98% 0,67% 36%,122% 100%,0 100%);
+	float: left;
+	max-height: 100vh;
+	background-image: url(../images/backgrounds5.jpg);
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.about p
+{   
+	position: relative;
+	top: 100px;
+    padding: 20px 100px;
+    color: white;
+    font-size: 1.15rem;
+	font-family: 'gothic' !important;     
+}
+
+@media only screen and (max-height: 680px)
+{
+	.about p
+	{
+		font-size: 1.1rem;
+	}
+}
+
+
+@media only screen and (max-width: 1450px)
+{
+	.about p
+	{
+		font-size: 15px;
+	}
+
+	.heading
+	{
+		left: 250px;
+	}
+
+}
+
+@media only screen and (max-width: 1200px)
+{
+	.about p
+	{
+		font-size: 1.8vw;
+		padding: 0 100px;
+		top: 60px;
+	}
+
+	.about img
+	{
+		position: absolute;
+		top: -50px;
+		max-width: none;
+	}
+
+	.heading
+	{
+		top: 40px;
+		left: 100px;
+	}
+
+}
+
+@media only screen and (max-width: 992px)
+{
+	.heading
+	{
+		left: 100px;
+	}
+	.about p
+	{
+		font-size: 1.6vw;
+		padding: 10px 100px;
+	}
+}
+
+@media only screen and (max-width: 768px) 
+{
+	.heading
+	{
+		font-size: 3.5vh;
+		left: 25px;
+	}
+
+
+	.about img
+	{
+		position: absolute;
+		height: 100%;
+	}
+
+	.about p
+	{
+		font-size: 1.7vh;
+		padding: 0px 25px;
+	}
+}
+
+
+@media only screen and (max-width: 560px) 
+{
+	.heading
+	{
+		top: -30px;
+	}
+	.about p
+	{
+		top: -20px;
+	}
+}
