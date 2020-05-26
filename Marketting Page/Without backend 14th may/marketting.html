@@ -15,6 +15,7 @@
     <link rel="stylesheet" media="all" onload="if(media!='all')media='all'" href="css/preloader.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" media="all" onload="if(media!='all')media='all'" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" media="all" onload="if(media!='all')media='all'" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.1.1/aos.css">
     <link rel="stylesheet" media="all" onload="if(media!='all')media='all'" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -107,63 +108,37 @@
         <div class="landing-img">
             <video class="bg-vid" src="videos/video_Trim.mp4" autoplay loop muted></video>
             <div class="textarea" style="z-index: 1">
-            <!-- <div id="container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-12">                        
-                          <h1>PETRICHOR</h1>
-                          <h1>PETRICHOR</h1>
-                          <h1>PETRICHOR</h1>
-                        </div>
-                    </div>                    
-                </div>
-            </div> -->
             <div class="content">
                 <div class="text" data-text="PETRICHOR">Petrichor</div>
             </div>
             <div class="expectations">Transcending your expectations</div>
 
-            <a class="plain" href="documents/Marketing_brochure_final.pdf" download style="background: transparent;">
-                <button class="landing-button txt-subhead">BROCHURE</button>
+            <a class="plain" href="documents/Marketing_brochure_final.pdf" download style="background: transparent;" data-aos="fade-up">
+                <button class="landing-button txt-subhead" >BROCHURE</button>
             </a>
             </div>
         </div>
     </section>
 
     <!--About us section -->
-    <section id="about-us-section" class="about-us-section">
+        <section id="about-us-section" class="about-us-section">
         <div id="about" class="about">
             <img src="images/im1.png">
 
-            <span class="heading">ABOUT US</span>
-                <p>Indian Institute of Technology Palakkad is an autonomous public
-                     institution established in 2015 and within a short span of time
-                     our institute is already offering BTech, MS, MTech, MSc and PhD 
-                    programmes with nearly 80 faculty, 700 students and 60 
-                    administrative & technical staff from all over the country. As of now, 
-                    we are located at two campuses, viz, the Ahalia integrated campus
-                     (Temporary Campus) and the Nila Campus (Permanent Campus) at 
-                    Kanjikode which is fast coming up on a picturesque 500-acre plot with 
-                    majestic Western Ghats visible on one side.</p><br><p>Proud to present to you, the annual techno-cultural fest of IIT Palakkad, 
-                    Petrichor. Petrichor, with its foundation in the year 2018, is not just a fest for
-                     us but a journey to define ourselves.With a plethora of events to showcase your
-                     technical expertise or put on a show of cultural extravaganza during a period of
-                     two days, Petrichor provides the perfect platform for students, faculty, participants 
-                    from all around and sponsors to come together and cherish technology and science
-                     and our unique culture. From 16 cultural events and 5 technical events in its first year
-                     to 17 cultural and 9 technical events last year, Petrichor promises to be bigger and
-                     better every coming year!</p><br>
+            <span class="heading" data-aos = "fade-up">About Us</span>
+                <p data-aos="zoom-in">Indian Institute of Technology, Palakkad is an autonomous public institution established in 2015 and, within a short span of time our institute is already offering BTech, MS, MTech, MSc and PhD programs with nearly 80 faculty, 700 students and 60 
+                administrative & technical staff from all over the country. As of now, we are located at two campuses, viz, the Ahalia integrated campus(Temporary Campus) and the Nila Campus (Permanent Campus) at Kanjikode which is coming up fast on a picturesque 500-acre plot with the majestic Western Ghats visible on one side.</p><br><p data-aos="zoom-in">Proud to present to you, the annual techno-cultural fest of IIT Palakkad, Petrichor. Petrichor, with its foundation in the year 2018, is not just a fest for us, but a journey to define ourselves. With a plethora of events to showcase your technical expertise, or to put on a show of cultural extravaganza during a period of two days, Petrichor provides the perfect platform for students, faculty, participants from all around and sponsors to come together and cherish technology, science and our unique culture. From 6 cultural events and 5 technical events in its first year to 17 cultural and 9 technical events last year, Petrichor promises to be bigger and better every coming year!</p><br>
         </div>
     </section>
 
     <!-- EVENTS SECTION -->
     <section class="events-page" id="events-page">
-    <h1 class="event-title" style="font-size: 2em; position: relative; top: 50px;">INDELIBLE INDULGENCES</h1>
+    <h1 class="event-title" style=" position: relative; top:30px; " data-aos="fade-right">INDELIBLE INDULGENCES</h1>
     <br>
     <br>
         <div class = "events" id = "blur">
             <div class = "container">
-                <div class = "card event-card">
+                <div class = "card event-card" data-aos="fade-right">
                     <div class = "content">
                         <div class = "event-image"><img src="images/cultural.jpg" alt="" width="100%" height="auto"></div>
                         <h2>Cultural Events</h2>
@@ -171,7 +146,7 @@
                         <a href = "#" onclick = "cultural()">Read More</a>
                     </div>
                 </div>
-                <div class = "card event-card">
+                <div class = "card event-card" data-aos="zoom-in">
                     <div class = "content">
                         <div class = "event-image"><img src="images/tech.jpg" alt="" width="100%" height="auto"></div>
                         <h2>Technical Events</h2>
@@ -179,7 +154,7 @@
                         <a href = "#" onclick = "technical()">Read More</a>
                     </div>
                 </div>
-                <div class = "card event-card">
+                <div class = "card event-card" data-aos="zoom-in">
                     <div class = "content">
                         <div class = "event-image" style="width: auto; height: auto;"><img src="images/workshop.jpg" alt="" width="100%" height="auto"></div>
                         <h2>Workshops</h2>
@@ -187,7 +162,7 @@
                         <a href = "#" onclick = "workshop()">Read More</a>
                     </div>
                 </div>
-                <div class = "card event-card">
+                <div class = "card event-card" data-aos="fade-left" >
                     <div class = "content">
                         <div class = "event-image"><img src="images/social_initiative.jpg" alt="" width="100%" height="auto"></div>
                         <h2>Social Initiatives</h2>
@@ -233,10 +208,10 @@
 
     <!-- WHY SPONSER US -->
     <section class="sponser" id="why-sponser">
-        <h2>WHY SPONSOR US</h2>
+        <h2 data-aos="fade-left">WHY SPONSOR US</h2>
         <div class="container card-boundary" >
             <div class="row card-row1" >
-                <div class="col-xl">
+                <div class="col-xl" data-aos="fade-down-right">
                     <div class="card card1 mx-auto" style="width: 18rem;">              
                         <div class="card-body">
                             <h5 class="card-title">Recognition on social media platforms</h5>
@@ -246,7 +221,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl">
+                <div class="col-xl" data-aos="fade-down-left">
                         <div class="card card2 mx-auto" style="width: 18rem;">              
                             <div class="card-body">
                                 <h5 class="card-title">Advertising stalls</h5>
@@ -258,7 +233,7 @@
 
             </div>
             <div class="row">
-                <div class="col-xl" >
+                <div class="col-xl" data-aos="zoom-in">
                     <div class="card card3 mx-auto" style="width: 18rem;">              
                         <div class="card-body">
                             <h5 class="card-title">Banners and posters</h5>
@@ -270,7 +245,7 @@
             </div>
 
             <div class="row card-row3">
-                <div class="col-xl">
+                <div class="col-xl" data-aos="fade-up-right">
                     <div class="card card4 mx-auto" style="width: 18rem;">              
                         <div class="card-body">
                             <h5 class="card-title">Pre-teasers and after movie</h5>
@@ -280,7 +255,7 @@
                     </div>
                 </div>
 
-                <div class="col-xl">
+                <div class="col-xl" data-aos="fade-up-left">
                         <div class="card card5 mx-auto" style="width: 18rem;">              
                             <div class="card-body">
                                 <h5 class="card-title">Announcements</h5>
@@ -297,7 +272,7 @@
 
     <!-- Proposals offered -->
     <section class="proposals" id = "proposals-offerd" >          
-        <h2 class="Proposals-txt-title">PROPOSALS OFFERED</h2>
+        <h2 class="Proposals-txt-title" data-aos="fade-right">PROPOSALS OFFERED</h2>
         <div class="pro-img">
             <img src="images/PROPOSALS.png" class="img-fluid">    
         </div>
@@ -306,12 +281,12 @@
 
     <!-- Contact Us section -->
     <div class="Contact-us" id="Contact-us" style = "overflow-x: hidden;">
-        <h2 class="contact-text-title">CONTACT US</h2>
+        <h2 class="contact-text-title"  data-aos="fade-left">CONTACT US</h2>
         <br>
         <br>
         <div class="contact-container">
             <div class="row justify-content-center">
-                <div class="col  contact-col col-md-3 col-9">
+                <div class="col  contact-col col-md-3 col-9" data-aos="fade-right">
                     <div class="card contact-card" style="padding: 15px 15px;">
                         <div class="card-header contact-header">FEST CO-ORDINATOR</div>
                         <div class="embed-responsive embed-responsive-10by9">
@@ -323,7 +298,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col contact-col col-md-3 col-9">
+                <div class="col contact-col col-md-3 col-9" data-aos="zoom-in">
                     <div class="card  contact-card" style="padding: 15px 15px;">
                         <div class="card-header contact-header">Marketing Head</div>
                         <div class="embed-responsive embed-responsive-10by9">
@@ -335,7 +310,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col contact-col col-md-3 col-9">
+                <div class="col contact-col col-md-3 col-9" data-aos="fade-left">
                     <div class="card contact-card" style="padding: 15px 15px;">
                         <div class="card-header contact-header">Marketing Head</div>
                         <div class="embed-responsive embed-responsive-10by9">
@@ -355,7 +330,7 @@
 
 <!-- GALLERY SECTION -->
     <section class="gallery" id="gallery">
-        <h2>GALLERY</h2>
+        <h2  data-aos="fade-right">GALLERY</h2>
             <div class="slidershow middle">
 
               <div class="slides">
@@ -391,7 +366,7 @@
 
 
 
-        <div class="social">
+        <div class="social" data-aos="fade-up" >
         <hr>
         <h2>FOLLOW US ON</h2>
 
@@ -413,7 +388,10 @@
 
         </div>
     </section>
-
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 
 
 </body>
