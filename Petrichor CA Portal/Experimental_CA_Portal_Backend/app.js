@@ -25,7 +25,8 @@ var rand,mailOptions,host,link;
 mongoose.connect('mongodb+srv://adminuser:adminpass@cluster0-c469f.mongodb.net/CA_Portal_Users?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 });
 
 
@@ -93,7 +94,7 @@ app.post('/signup', function(req, res){
             }
             else{
                 // Registering user
-                User.register(new User({name:req.body.name, username:req.body.username, email:req.body.email, college:req.body.clg}),
+                User.register(new User({name:req.body.name, username:req.body.username, email:req.body.email, isVerified:false, college:req.body.clg}),
                 req.body.password, function(err, newuser){
                     if(err){
                         console.log('error in creating a new user');
@@ -105,7 +106,7 @@ app.post('/signup', function(req, res){
 
 
                 // Sending verification email
-                rand=CryptoJS.AES.encrypt(req.body.email, crypto_key);
+                rand=CryptoJS.AES.encrypt(req.body.email, crypto_key).toString();
                 host=req.get('host');
                 link="http://"+req.get('host')+"/verify?id="+rand;
                 mailOptions={
@@ -142,14 +143,22 @@ app.post('/profile_data_post', function(req, res){
 
 
 app.get('/verify',function(req,res){
-    console.log(req.protocol+":/"+req.get('host'));
     if((req.protocol+"://"+req.get('host'))==("http://"+host)){
         console.log("Domain is matched. Information is from Authentic email");
-        var users = User.find({email: CryptoJS.AES.decrypt(req.query.id, crypto_key).toString(CryptoJS.enc.Utf8)});
-        console.log(req.query.id);
-        if(users.length != 0){
+        console.log(req.query.id.replace(/\s/g, '+'));
+        var toVerifyEmail = CryptoJS.AES.decrypt(req.query.id.replace(/\s/g, '+'), crypto_key).toString(CryptoJS.enc.Utf8);
+        console.log(toVerifyEmail);
+        var users = User.find({email: toVerifyEmail});
+        if(users.length !== 0){
             console.log("email is verified");
-            res.send("<h1>Email "+mailOptions.to+" is been Successfully verified");
+            User.findOneAndUpdate({email: toVerifyEmail}, {isVerified: true}, function(err, result){
+                if(err){
+                    console.log(err);
+                }
+                else{
+                    return res.send("<h1>Email "+toVerifyEmail+" is been Successfully verified");
+                }
+            });
         }
         else{
             console.log("email is not verified");
@@ -168,7 +177,6 @@ app.get('/verify',function(req,res){
 
 
 app.get('*', function(req, res){
-    console.log('Invalid Page Accessed');
     res.send('ERROR 404 :The page you requested does not exist !');
 });
 
@@ -186,3 +194,6 @@ function isLoggedIn(req, res, next){
 app.listen(8000, function(){
     console.log('Starting Server.....');
 });
+
+
+
