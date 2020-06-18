@@ -1,0 +1,70 @@
+html,
+body {
+    background-color: #230a23;
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+}
+
+.login {
+    text-align: center;
+}
+
+.login a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.forgot {
+    text-align: center;
+}
+
+.forgot a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.card {
+    width: 370px;
+    height: 520px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 3px 3px #cfcfff;
+}
+
+.form-footer {
+    position: relative;
+    top: -3%;
+}
+
+.card-body {
+    margin: 0 20px 25px 20px;
+}
+
+.form-control {
+    border-radius: 12px;
+}
+
+.login_button {
+    border-radius: 12px;
+}
+
+.login_button span {
+    font-weight: 500;
+}
+
+.card-header {
+    font-weight: 500;
+    font-size: 1.4em;
+}
+
+.login a:hover {
+    color: blue;
+}
+
+.incorrect {
+    color: red;
+}
