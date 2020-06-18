@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CA-Information</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<h1 style="text-align: center">CA Registration Details</h1>
+<table style="width: 100%" border="|">
+    <tr>
+        <th>CA Names</th>
+        <th>Token ID</th>
+        <th>Total Registrations</th>
+        <th>Current Rank</th>
+    </tr>
+    <% details.forEach(function(data){%>
+    <tr>
+        <td><%= data.name%></td>
+        <td><%= data._id%></td>
+        <td><%= data.username%></td>
+        <td><%= data.email%></td>
+        <td><form action="/insert" method="POST"><input class="form-control" type="text" name="registration"></form></td>
+    </tr>
+    <% }) %>
+</table>
+</body>
+</html>
