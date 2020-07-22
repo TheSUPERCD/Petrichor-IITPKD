@@ -1,6 +1,6 @@
 html,
 body {
-    background-color: #230a23;
+    background: -webkit-linear-gradient(bottom, #0250c5, #d43f8d);
     height: 100%;
     margin: 0;
 }
@@ -30,9 +30,9 @@ body {
 .card {
     width: 370px;
     height: 520px;
-    border-radius: 15px;
+    background: url(../Images/petrichor.png);
+    background-size: cover;
     text-align: center;
-    box-shadow: 3px 3px #cfcfff;
 }
 
 .form-footer {
@@ -42,6 +42,7 @@ body {
 
 .card-body {
     margin: 0 20px 25px 20px;
+    opacity: 0.6;
 }
 
 .form-control {
@@ -52,7 +53,7 @@ body {
     border-radius: 12px;
 }
 
-.login_button span {
+.login_button{
     font-weight: 500;
 }
 
@@ -62,9 +63,38 @@ body {
 }
 
 .login a:hover {
-    color: blue;
+    color: white;
 }
 
 .incorrect {
     color: red;
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    width: 222px;
+    height: 340px;
+    text-align: center;
+}
+    .card-body {
+    margin: 0 5px 6.25px 5px;
+}
+    .form-control{
+        height: 18px;
+        border-radius: 6px;
+        font-size: 10px;
+    }
+    .login_button{
+        height: 25px;
+        margin: 0;
+        position: relative;
+        border-radius: 10px;
+        top: 2px;
+    }
+    .form-footer {
+        font-size: 10px;
+        top: -3%;
+    }
+    .btn{
+        padding: 0;
+    }
 }

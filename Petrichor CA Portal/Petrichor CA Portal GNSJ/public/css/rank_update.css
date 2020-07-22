@@ -1,0 +1,87 @@
+html,
+body {
+    background-color: #230a23;
+    height: 100%;
+    margin: 0;
+}
+
+.container {
+    height: 100%;
+}
+
+.signup {
+    text-align: center;
+}
+
+.signup a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.forgot {
+    text-align: center;
+}
+
+.forgot a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.card {
+    width: 370px;
+    height: 400px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 3px 3px #cfcfff;
+}
+
+.form-footer {
+    position: relative;
+    top: -3%;
+}
+
+.card-body {
+    margin: 15px;
+}
+
+.form-control {
+    border-radius: 12px;
+}
+
+.login_button {
+    border-radius: 12px;
+}
+
+.login_button span {
+    font-weight: 500;
+}
+
+.card-header {
+    font-weight: 500;
+    font-size: 1.4em;
+}
+
+.signup a:hover {
+    color: blue;
+}
+
+@media screen and(max-width: 768px) {
+    .card {
+        width: 185px;
+        height: 200px;
+        background-color: red;
+    }
+}
+
+.incorrect {
+    color: red;
+}
+
+.reg a {
+    color: yellow;
+    text-decoration: none;
+}
+
+.reg a:hover {
+    color: white;
+}
