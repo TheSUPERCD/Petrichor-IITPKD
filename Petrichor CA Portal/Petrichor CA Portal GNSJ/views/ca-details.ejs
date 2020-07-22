@@ -11,16 +11,17 @@
     <tr>
         <th>CA Names</th>
         <th>Token ID</th>
-        <th>Total Registrations</th>
-        <th>Current Rank</th>
+        <th>Username</th>
+        <th>E-mail</th>
+        <th>Registration</th>
     </tr>
     <% details.forEach(function(data){%>
     <tr>
         <td><%= data.name%></td>
-        <td><%= data._id%></td>
+        <td><%= data.token_id%></td>
         <td><%= data.username%></td>
         <td><%= data.email%></td>
-        <td><form action="/insert" method="POST"><input class="form-control" type="text" name="registration"></form></td>
+        <td><%= data.registrations%></td>
     </tr>
     <% }) %>
 </table>
