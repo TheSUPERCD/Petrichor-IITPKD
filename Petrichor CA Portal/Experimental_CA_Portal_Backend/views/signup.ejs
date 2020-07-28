@@ -10,71 +10,57 @@
 	<!-- <section class="login-page"> -->
 		<div class="container">
 			<div class="d-flex justify-content-center h-100 align-items-center">				
-				<div class="card text-white bg-primary mb-3 mx-auto" >
-			  		<div class="card-header mx-auto">Sign Up</div>
+				<div class="card text-white mb-3 mx-auto" >
+			  		<h5 class="card-header">Sign Up</h5>
+			  		
 			  			<div class="card-body">
 			   				<form action="/signup" method="POST">
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="text" class="form-control" id="name" name="name" placeholder="FULL NAME" required>   					
+			   							<input type="text" class="form-control" name="name" placeholder="FULL NAME" required>   					
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required>
+			   							<input type="email" class="form-control" name="email" placeholder="E-mail" required>
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="username" class="form-control" id="username" name="username" placeholder="username" required>      							
+			   							<input type="username" class="form-control" name="username" placeholder="username" required>      							
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+			   							<input type="password" class="form-control" name="password" placeholder="Password" required>
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="password" class="form-control" id="repass" placeholder="Re-type Password" required>
+			   							<input type="password" class="form-control" name="repass" placeholder="Re-type Password" required>
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="text" class="form-control" id="college" name="clg" placeholder="Your College Name" required>
+			   							<input type="text" class="form-control" name="clg" placeholder="Your College Name" required>
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
-			   						<div class="row">
-			   							<button  type="submit" class="btn btn-light btn-xl btn-block login_button"><span>Sign Up</span></button>    	 							
+			   						<div class="row submit">
+			   							<button  type="submit" class="btn btn-light btn-xl btn-block login_button">Sign Up</button>    	 							
 			   						</div>
 			   					</div>
-			   				</form>
+							   </form>
+							   <p class="incorrect"><%= string %></p>
 			   			</div>
 			   			<div class="form-footer">
 			   				<div class="login">Already have an account? <a href="/login">Log In</a></div>		
 			   			</div>
-			  		</div>
+			  		<!-- </div> -->
 				</div>
 			<!-- </div>			 -->
 		</div>
 	<!-- </section> -->
-	<script>
-		var password = document.getElementById("password");
-		var confirm_password = document.getElementById("repass");
-
-		function validatePassword(){
-			if(password.value != confirm_password.value) {
-				confirm_password.setCustomValidity("Passwords Don't Match");
-			}
-			else {
-				confirm_password.setCustomValidity('');
-			}
-		}
-
-		password.onchange = validatePassword;
-		confirm_password.onkeyup = validatePassword;
-	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

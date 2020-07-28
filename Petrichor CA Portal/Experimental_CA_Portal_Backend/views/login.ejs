@@ -4,19 +4,20 @@
 	<title>CA-Portal Login</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="./css/login.css">
+	<link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
 	<!-- <section class="login-page"> -->
 		<div class="container">
 			<div class="d-flex justify-content-center h-100 align-items-center">				
-				<div class="card text-white bg-primary mb-3 mx-auto" >
-			  		<div class="card-header mx-auto">Log In</div>
+				<div class="card text-white mb-3 mx-auto" >
+					<h5 class="card-header">Log In</h5>
+		
 			  			<div class="card-body">
 			   				<form action="/login" method="POST">
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="username" class="form-control" name="username" placeholder="Username" required>      							
+			   							<input type="username" class="form-control" name="username" placeholder="username" required>      							
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
@@ -29,13 +30,13 @@
 			   							<button  type="submit" class="btn btn-light btn-xl btn-block login_button"><span>Log In</span></button>    	 							
 			   						</div>
 			   					</div>
-			   				</form>
+							   </form>
+							   <p class="incorrect"><%= string %></p>
 			   			</div>
 			   			<div class="form-footer">
 			   				<div class="signup">Don't Have an account? <a href="/signup">Sign Up</a></div>		   					
 			   				<div class="forgot"><a href="#">Forgot your password?</a></div>
 			   			</div>
-			  		</div>
 				</div>
 			<!-- </div>			 -->
 		</div>

@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <title>Dashboard</title>
+    <title>Registrations</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous" />
     <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/registrations.css" />
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
@@ -24,20 +24,24 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Petrichor</h3>
-                <strong><img src="images/petrichor_logo.png" alt="PT" class="img-fluid"></strong>
+                <img src="Images/petrichor.png" alt="PT" class="img-fluid" /> 
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                <li>
+                    <a href="/dashboard">
                         <i class="fas fa-home"></i> Dashboard
                     </a>
                 </li>
                 <li>
-                    <a href="#Profile"> <i class="fas fa-briefcase"></i> Profile </a>
-                    <a href="#" data-toggle="collapse" aria-expanded="false">
+                    <a href="/profile"> <i class="fas fa-briefcase"></i> Profile </a>
+                 </li>
+                 <li   class="active">   
+                    <a href="/registrations">
                         <i class="fas fa-copy"></i> Registrations
                     </a>
+                </li>
+                <li>
                     <a href="#"><i class="fas fa-question"></i> FAQ</a>
                 </li>
             </ul>
