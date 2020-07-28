@@ -53,7 +53,7 @@ body {
     border-radius: 12px;
 }
 
-.login_button{
+.login_button {
     font-weight: 500;
 }
 
@@ -67,23 +67,26 @@ body {
 }
 
 .incorrect {
-    color: red;
+    color: #CD6157;
+    font-weight: bold;
+    margin: 0;
 }
+
 @media only screen and (max-width: 768px) {
-  .card {
-    width: 222px;
-    height: 340px;
-    text-align: center;
-}
+    .card {
+        width: 222px;
+        height: 340px;
+        text-align: center;
+    }
     .card-body {
-    margin: 0 5px 6.25px 5px;
-}
-    .form-control{
+        margin: 0 5px 6.25px 5px;
+    }
+    .form-control {
         height: 18px;
         border-radius: 6px;
         font-size: 10px;
     }
-    .login_button{
+    .login_button {
         height: 25px;
         margin: 0;
         position: relative;
@@ -92,9 +95,12 @@ body {
     }
     .form-footer {
         font-size: 10px;
-        top: -3%;
+        top: -1%;
     }
-    .btn{
+    .btn {
         padding: 0;
+    }
+    .incorrect {
+        font-size: 9px;
     }
 }

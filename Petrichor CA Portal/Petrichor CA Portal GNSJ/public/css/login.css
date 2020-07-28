@@ -71,6 +71,7 @@ body {
     color: white;
 }
 
+
 /* @media screen and(max-width: 768px) {
     .card {
         width: 185px;
@@ -84,22 +85,22 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-  .card {
-    width: 222px;
-    height: 250px;
-    /* border-radius: 10px; */
-    text-align: center;
-    /* box-shadow: 3px 3px #cfcfff; */
-}
+    .card {
+        width: 222px;
+        height: 250px;
+        /* border-radius: 10px; */
+        text-align: center;
+        /* box-shadow: 3px 3px #cfcfff; */
+    }
     .card-body {
-    margin: 0 5px 6.25px 5px;
-}
-    .form-control{
+        margin: 0 5px 6.25px 5px;
+    }
+    .form-control {
         height: 18px;
         border-radius: 6px;
         font-size: 10px;
     }
-    .login_button{
+    .login_button {
         height: 25px;
         margin: 0;
         position: relative;
@@ -110,7 +111,13 @@ body {
         font-size: 10px;
         top: -3%;
     }
-    .btn{
+    .btn {
         padding: 0;
+    }
+    .incorrect {
+        color: #CD6157;
+        font-weight: bold;
+        font-size: 10px;
+        margin: 0;
     }
 }

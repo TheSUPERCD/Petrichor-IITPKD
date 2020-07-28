@@ -25,7 +25,7 @@ app.use("/ca-portal/admin/registrations", express.static("public"));
 // });
 var initial_reg = 0;
 initial_rank = "NIL";
-initial_points = "NIL";
+initial_points = 0;
 // mongoose.connect('mongodb://localhost/database', { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connect(
     "mongodb+srv://caportal:caportal@cluster0.uyrou.mongodb.net/database?retryWrites=true&w=majority", {
@@ -53,9 +53,9 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+
+
 app.get("/ca-portal/signup", function(req, res) {
-    var valid = [""];
-    var flag = 1;
     res.render("signup.ejs", { string: req.flash("alert") });
 });
 
@@ -72,16 +72,18 @@ app.post("/ca-portal/signup", function(req, res) {
                 email: req.body.email,
                 registrations: initial_reg,
                 rank: initial_rank,
-                token_id: get_token(8),
+                token_id: get_token(8)
             }),
             req.body.password,
             function(err, user) {
                 if (err) {
-                    if (err.name == "UserExistsError"); {
+                    console.log(err)
+                    if (err.name == "UserExistsError") {
                         req.flash('alert', '*User Already Exists');
                         return res.redirect("/ca-portal/signup");
                     }
                 }
+                console.log("hi")
                 passport.authenticate("local")(req, res, function() {
                     res.redirect("/ca-portal/dashboard");
                 });
@@ -94,7 +96,9 @@ app.post("/ca-portal/signup", function(req, res) {
 });
 
 app.get("/ca-portal/login", function(req, res) {
-    res.render("login.ejs");
+    var error = req.session.messages;
+    req.session.messages = []
+    res.render("login.ejs", { error: error || [] });
 });
 
 app.post(
@@ -102,6 +106,7 @@ app.post(
     passport.authenticate("local", {
         successRedirect: "/ca-portal/dashboard",
         failureRedirect: "/ca-portal/login",
+        failureMessage: '*Invalid Username or Password'
     })
 );
 
@@ -167,22 +172,21 @@ app.get("/ca-portal/admin/registrations", function(req, res) {
 });
 
 app.post("/ca-portal/admin/registrations", function(req, res) {
-            var token = req.body.token;
-            var num_reg = parseInt(req.body.registrations);
-            var points = parseInt(req.body.points);
-            User.findOneAndUpdate({ token_id: token }, { $inc: { registrations: num_reg, points: points } }, function(error, result) {
-                if (error) {
-                    req.flash('message', 'Submission Failed');
-                    res.redirect("/ca-portal/admin/registrations");
-                } else if(!result) {
-                    req.flash('message', 'Incorrect Details, No user Exists');
-                    res.redirect("/ca-portal/admin/registrations");                    
-                }
-                else{
-                    req.flash('message', 'Saved successfully')
-                    res.redirect("/ca-portal/admin/registrations")
-                }
-            });
+    var token = req.body.token;
+    var num_reg = parseInt(req.body.registrations);
+    var points = parseInt(req.body.points);
+    User.findOneAndUpdate({ token_id: token }, { $inc: { registrations: num_reg, points: points } }, function(error, result) {
+        if (error) {
+            req.flash('message', 'Submission Failed');
+            res.redirect("/ca-portal/admin/registrations");
+        } else if (!result) {
+            req.flash('message', 'Incorrect Details, No user Exists');
+            res.redirect("/ca-portal/admin/registrations");
+        } else {
+            req.flash('message', 'Saved successfully')
+            res.redirect("/ca-portal/admin/registrations")
+        }
+    });
 });
 
 function isLoggedIn(req, res, next) {
