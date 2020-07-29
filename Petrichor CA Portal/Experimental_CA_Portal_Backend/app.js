@@ -106,7 +106,8 @@ app.get("/registrations", isLoggedIn, function(req, res) {
 
 app.get('/logout', isLoggedIn, function(req, res){
     req.logOut();
-    res.send('You have logged out successfully');
+    req.flash('error', 'You have logged out successfully');
+    res.redirect('/login');
 });
 
 app.post('/login', passport.authenticate('local', {failureRedirect: '/login', failureFlash: 'Invalid Username or Passsword'}), function(req, res){
@@ -177,8 +178,7 @@ app.post('/signup', function(req, res){
                         res.send("Verification mail is sent");
                     }
                 });
-
-
+                req.flash('error', 'Please verify your email before logging in');
                 res.redirect('/login')
             }
         }
