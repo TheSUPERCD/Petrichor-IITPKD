@@ -18,10 +18,16 @@ initial_rank = "NIL";
 initial_points = 0;
 
 var smtpTransport = nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true,
     auth: {
+        type: 'OAuth2',
         user: "sandywill6969@gmail.com",
-        pass: "helloworld69"
+        clientId: "86824932391-necudl9qj9b35ueob5vb0k5na6s3e7jh.apps.googleusercontent.com",
+        clientSecret: "TaKrqALt41aoYXy1eyMiOYn9",
+        refreshToken: "1//04GxJeZghVU8UCgYIARAAGAQSNwF-L9Ir3DggPOYaPYnpFri2H_FlBxO-PW3uW0K-4F7iMsooQaSQEcHxDuH_-qqEPZlp23Ol2A8",
+        accessToken: "ya29.a0AfH6SMCrlQoFAI2q0l2yDJJw5zzaB-GEGkIlWAkBWdT5pQbSdbnFHlMZuLRK5TXFcdWhKhZW6nf637AKg1y2Npam1ebXnKqPfAniw7fZ1FJn99z37n62cLS13-Fa2C_mgCPlF4gtEH_tIg_fBxb9s2X7HJk_aq6LDQM"
     }
 });
 var rand,mailOptions,host,link;
