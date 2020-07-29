@@ -223,11 +223,11 @@ app.get('/verify',function(req,res){
     }
 });
 
-app.get("/admin/registrations", function(req, res) {
+app.get("/admin/registrations", isLoggedIn, isAdmin, function(req, res) {
     res.render("rank_update.ejs", { message: req.flash('message') });
 });
 
-app.get("/ca-information", function(req, res) {
+app.get("/admin/ca-information", isLoggedIn, isAdmin, function(req, res) {
     var detail_info = [];
     mongoose.connect(
         'mongodb+srv://adminuser:adminpass@cluster0-c469f.mongodb.net/CA_Portal_Users?retryWrites=true&w=majority', {
@@ -290,6 +290,15 @@ function isLoggedOut(req, res, next){
     }
     else{
         return next();
+    }
+}
+
+function isAdmin(req, res, next){
+    if(req.user.username === 'TheSUPERCD'){
+        return next();
+    }
+    else{
+        res.send('You are not allowed to view this page');
     }
 }
 
