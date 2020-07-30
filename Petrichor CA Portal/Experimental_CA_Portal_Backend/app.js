@@ -18,7 +18,7 @@ var secret = require('./models/secret_keys.json');
 
 
 var initial_reg = 0;
-initial_rank = "NIL";
+initial_rank = "Unranked";
 initial_points = 0;
 
 var smtpTransport = nodemailer.createTransport({
@@ -48,6 +48,7 @@ mongoose.connect('mongodb+srv://adminuser:adminpass@cluster0-c469f.mongodb.net/C
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
+app.use("/admin", express.static("public"));
 passport.use(new localStrategy(User.authenticate()));
 app.use(require('express-session')({
     secret: 'secret',
@@ -125,9 +126,12 @@ app.post('/login', passport.authenticate('local', {failureRedirect: '/login', fa
 
 app.post('/signup', function(req, res){
     User.find({
-        $or: [
-            {username:req.body.username},
-            {email:req.body.email}
+        $and: [
+            {isVerified : true},
+            {$or: [
+                {username:req.body.username},
+                {email:req.body.email}
+            ]}
         ]
     }, function(err, user){
         if(err){
@@ -135,7 +139,7 @@ app.post('/signup', function(req, res){
         }
         else{
             if(user.length !== 0){
-                req.flash('alert', 'User Already Exists');
+                req.flash('alert', 'Username or Email already in use');
                 res.redirect('/signup'); // username or email already taken
             }
             else{
@@ -166,7 +170,7 @@ app.post('/signup', function(req, res){
                 host=req.get('host');
                 link="http://"+req.get('host')+"/verify?id="+rand;
                 mailOptions={
-                    from : 'sandywill6969@gmail.com',
+                    from : secret.user,
                     to : req.body.email,
                     subject : "Please confirm your Email account",
                     html : "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>" 
@@ -241,7 +245,9 @@ app.get("/admin/ca-information", isLoggedIn, isAdmin, function(req, res) {
             var details = db.collection("users").find();
             details.forEach(
                 function(data, err) {
-                    detail_info.push(data);
+                    if(data.isVerified == true){
+                        detail_info.push(data);
+                    }
                 },
                 function() {
                     res.render("ca-details.ejs", { details: detail_info });
@@ -263,8 +269,9 @@ app.post("/admin/registrations", function(req, res) {
             req.flash('message', 'Incorrect Details, No user Exists');
             res.redirect("/admin/registrations");
         } else {
-            req.flash('message', 'Saved successfully')
-            res.redirect("/admin/registrations")
+            updateRanks();
+            req.flash('message', 'Saved successfully');
+            res.redirect("/admin/registrations");
         }
     });
 });
@@ -274,7 +281,7 @@ app.post("/admin/registrations", function(req, res) {
 
 
 app.get('/*', function(req, res){
-    res.send('ERROR 404 :The page you requested does not exist !');
+    res.send('<h2>ERROR 404 :The page you requested does not exist !</h2>');
 });
 
 
@@ -329,6 +336,47 @@ function get_token(length) {
     });
     return result;
 }
+
+
+function updateRanks(){
+    var detail_info = [];
+    mongoose.connect(
+        'mongodb+srv://adminuser:adminpass@cluster0-c469f.mongodb.net/CA_Portal_Users?retryWrites=true&w=majority', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        },
+        function(err, db) {
+            var details = db.collection("users").find();
+            details.forEach(
+                function(data, err) {
+                    detail_info.push(data);
+                },
+                function(){
+                    detail_info.sort(function(a,b){
+                        if(a.points === b.points){
+                            return b.registrations - a.registrations;
+                        }
+                        else{
+                            return b.points - a.points;
+                        }
+                    });
+                    for(var i=0; i<detail_info.length; i++){
+                        User.findOneAndUpdate({ username: detail_info[i].username }, { rank: i+1 }, function(error, result) {
+                            if (error) {
+                                console.log('some error occurred with updating ranks');
+                            }
+                            else if (!result) {
+                                console.log('Incorrect Details, No user Exists');
+                            }
+                        });
+                    }
+                }
+            );
+        }
+    );
+}
+
+
 
 app.listen(8000, function(){
     console.log('Starting Server.....');
