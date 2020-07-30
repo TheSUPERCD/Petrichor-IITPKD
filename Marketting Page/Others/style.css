@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+.event-title {
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: azure;
+  background-color: black;
+}
+.events {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 75vh;
+  background-image: url("backgrounds.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+.events#blur.active
+{
+	filter: blur(20px);
+	pointer-events: none;
+	user-select: none;
+}
+.events .container {
+  max-width: 1500px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transition: 0.5s;
+}
+.events .container .card {
+  position: relative;
+  width: 375px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  background-image: url("backgrounds.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+.events .container:hover .card {
+  filter: blur(5px);
+  transform: scale(0.7);
+}
+.events .container .card:hover {
+  filter: blur(0px);
+  transform: scale(1);
+  opacity: 1;
+}
+.events .container .card:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: 0.5s;
+}
+.events .container .card:hover:before {
+  background: #146370;
+  transform: scaleY(1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+.events .container .card .content {
+  text-align: center;
+  z-index: 2;
+  padding: 0 20px;
+  transition: 0.5s;
+}
+.events .container .card:hover .content p {
+  color: #fff;
+  font-weight: normal;
+}
+.events .container .card:hover .content h2 {
+  color: black;
+}
+.events .container .card .content h2 {
+  font-size: 3em;
+  color: #12B0CA;
+  opacity: .7;
+}
+.events .container .card .content p {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #3333ff;
+  opacity: .7;
+}
+.events .container .card .content a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
+.events .container .card:hover .content a {
+  background: #ffffb3;
+}
+#cultural
+{
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 600px;
+	padding: 50px;
+	box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+	background: #fff;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s;
+}
+#cultural.active
+{
+	top: 40%;
+	visibility: visible;
+	opacity: 1;
+	transition: 0.5s;
+	background-image: url("backgrounds.jpg");
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
+  	background-position: center;
+}
+#cultural.active p
+{
+	font-weight: bold;
+  	color: #3333ff;
+  	opacity: .7;
+}	
+#technical
+{
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 600px;
+	padding: 50px;
+	box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+	background: #fff;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s;
+}
+#technical.active
+{
+	top: 40%;
+	visibility: visible;
+	opacity: 1;
+	transition: 0.5s;
+	background-image: url("backgrounds.jpg");
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
+  	background-position: center;
+}
+#technical.active p
+{
+	font-weight: bold;
+  	color: #3333ff;
+  	opacity: .7;
+}
+#workshop
+{
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 600px;
+	padding: 50px;
+	box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+	background: #fff;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s;
+}
+#workshop.active
+{
+	top: 40%;
+	visibility: visible;
+	opacity: 1;
+	transition: 0.5s;
+	background-image: url("backgrounds.jpg");
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
+  	background-position: center;
+}
+#workshop.active p
+{
+	font-weight: bold;
+  	color: #3333ff;
+  	opacity: .7;
+}
+#social
+{
+	position: fixed;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	width: 600px;
+	padding: 50px;
+	box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+	background: #fff;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.5s;
+}
+#social.active
+{
+	top: 40%;
+	visibility: visible;
+	opacity: 1;
+	transition: 0.5s;
+	background-image: url("backgrounds.jpg");
+  	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
+  	background-position: center;
+}
+#social.active p
+{
+	font-weight: bold;
+  	color: #3333ff;
+  	opacity: .7;
+}
+#cultural a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
+#technical a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
+#workshop a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
+#social a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 5px 10px;
+  background: #66ffff;
+  color: #cc6600;
+  text-decoration: none;
+  opacity: .7;
+}
