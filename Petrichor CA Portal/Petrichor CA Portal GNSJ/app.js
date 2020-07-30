@@ -8,7 +8,6 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var LocalStrategy = require("passport-local");
 var flush = require("connect-flash");
 
-
 var app = express();
 
 app.use("/ca-portal/login", express.static("public"));
@@ -18,7 +17,6 @@ app.use("/ca-portal/profile", express.static("public"));
 app.use("/ca-portal/ca-information", express.static("public"));
 app.use("/ca-portal/signup", express.static("public"));
 app.use("/ca-portal/admin/registrations", express.static("public"));
-
 // mongoose.connect("mongodb+srv://caportal:caportal@cluster0.uyrou.mongodb.net/database?retryWrites=true&w=majority", {
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
@@ -159,6 +157,7 @@ app.get("/ca-portal/ca-information", function(req, res) {
                     detail_info.push(data);
                 },
                 function() {
+                    rank_updation();
                     res.render("ca-details.ejs", { details: detail_info });
                 }
             );
@@ -183,6 +182,8 @@ app.post("/ca-portal/admin/registrations", function(req, res) {
             req.flash('message', 'Incorrect Details, No user Exists');
             res.redirect("/ca-portal/admin/registrations");
         } else {
+            rank_updation()
+            rank_updation()
             req.flash('message', 'Saved successfully')
             res.redirect("/ca-portal/admin/registrations")
         }
@@ -206,6 +207,47 @@ function get_token(length) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
+}
+
+function rank_updation() {
+    var user = []
+    mongoose.connect(
+        "mongodb+srv://caportal:caportal@cluster0.uyrou.mongodb.net/database?retryWrites=true&w=majority", {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        },
+        function(err, db) {
+            var data = db.collection("users").find().sort({ points: -1, registrations: -1 });
+            data.forEach((da, err) => {
+                user.push({ username: da.username, points: da.points, rank: 0, registrations: da.registrations })
+                    // console.log(da)
+            }, function() {
+                for (i = 0; i < user.length; i++) {
+                    p = parseInt(user[i].points);
+                    if (p != 0) {
+                        if (i > 0) {
+                            if (p == parseInt(user[i - 1].points) && user[i].registrations == user[i - 1].registrations) {
+                                user[i].rank = user[i - 1].rank;
+                                User.findOneAndUpdate({ username: user[i].username }, { $set: { rank: user[i - 1].rank } }, (err, results) => {
+                                    console.log(results);
+                                })
+                            } else {
+                                user[i].rank = user[i - 1].rank + 1;
+                                User.findOneAndUpdate({ username: user[i].username }, { $set: { rank: (user[i].rank).toString() } }, (err, results) => {
+                                    console.log(results);
+                                })
+                            }
+                        } else if (i == 0) {
+                            user[i].rank = 1
+                            User.findOneAndUpdate({ username: user[i].username }, { $set: { rank: 1 } }, (err, results) => {
+                                console.log(results);
+                            })
+                        }
+                    }
+                }
+            });
+        }
+    );
 }
 
 app.get("/*", function(req, res) {

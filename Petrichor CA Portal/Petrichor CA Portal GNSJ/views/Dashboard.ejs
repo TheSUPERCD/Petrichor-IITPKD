@@ -24,7 +24,7 @@
         <nav id="sidebar">
             <div class="sidebar-header">
                 <h3>Petrichor</h3>
-                <img src="Images/petrichor.png"  class="img-fluid" />
+                <img src="Images/petrichor.png" class="img-fluid" />
             </div>
 
             <ul class="list-unstyled components">
@@ -58,7 +58,7 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            
+
                             <li class="nav-item active">
                                 <a class="nav-link btn sign-out" href="/ca-portal/logout">Sign Out</a>
                             </li>
@@ -69,36 +69,46 @@
             <h1 class="dashboard">Dashboard</h1>
 
             <div class="card-group">
-              <div class="card"  style="border-radius: 10px">
-                <div class="card-body">
-                    <h5 class="card-title">Registrations</h5>
-                    <p class="card-text">Number of registrations : <%= user_info[0].registrations %></p>
+                <div class="card" style="border-radius: 10px">
+                    <div class="card-body">
+                        <h5 class="card-title">Registrations</h5>
+                        <p class="card-text">Number of registrations :
+                            <%= user_info[0].registrations %>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Petrichor 2021</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted">Petrichor 2021</small>
+                <div class="card" style="border-radius: 10px">
+                    <div class="card-body">
+                        <h5 class="card-title">Current Rank</h5>
+                        <p class="card-text">
+                            <%= user_info[0].rank %>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Petrichor 2021</small>
+                    </div>
                 </div>
-              </div>
-              <div class="card"  style="border-radius: 10px">
-               <div class="card-body">
-                    <h5 class="card-title">Current Rank</h5>
-                    <p class="card-text"><%= user_info[0].rank %></p>
-                </div>
-                <div class="card-footer">
-                  <small class="text-muted">Petrichor 2021</small>
-                </div>
-              </div>
 
-              <div class="card" style="border-radius: 10px">
-                <div class="card-body">
-                    <h5 class="card-title">Points Earned</h5>
-                    <p class="card-text">Total Number of Points : <%= user_info[0].points %></p>
+                <div class="card" style="border-radius: 10px">
+                    <div class="card-body">
+                        <h5 class="card-title">Points Earned</h5>
+                        <p class="card-text">Total Number of Points :
+                            <%= user_info[0].points %>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Petrichor 2021</small>
+                    </div>
                 </div>
-                <div class="card-footer">
-                  <small class="text-muted">Petrichor 2021</small>
-                </div>
-              </div>
             </div>
-            <h3>Token Id : <%= user_info[0].token_id %></h3>
+            <div class="token">
+                <h3>Token Id :
+                    <%= user_info[0].token_id %>
+                </h3>
+            </div>
         </div>
     </div>
 

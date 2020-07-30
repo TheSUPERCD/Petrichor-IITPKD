@@ -45,6 +45,23 @@ a:focus {
     max-width: 300px;
 }
 
+.token {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+}
+
+.token h3 {
+    position: absolute;
+    border: 4px solid #a1ffce;
+    padding: 10px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, #70e1f5, #ffd194);
+    top: 20px;
+}
+
 .card-group {
     justify-content: center;
     text-align: center;
@@ -91,6 +108,23 @@ span {
 
 .dashboard {
     font-size: 2em;
+}
+
+.gifts {
+    position: relative;
+}
+
+.gift1,
+.gift2 {
+    position: absolute;
+}
+
+.gift1 {
+    top: 150px;
+}
+
+.gift2 {
+    top: 200px;
 }
 
 

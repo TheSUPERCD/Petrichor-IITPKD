@@ -14,6 +14,8 @@
         <th>Username</th>
         <th>E-mail</th>
         <th>Registration</th>
+        <th>Points</th>
+        <th>Rank</th>
     </tr>
     <% details.forEach(function(data){%>
     <tr>
@@ -22,6 +24,8 @@
         <td><%= data.username%></td>
         <td><%= data.email%></td>
         <td><%= data.registrations%></td>
+        <td><%= data.points%></td>
+        <td><%= data.rank%></td>
     </tr>
     <% }) %>
 </table>
