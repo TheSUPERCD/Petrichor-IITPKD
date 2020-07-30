@@ -13,6 +13,10 @@ const user = require('./models/user');
 var flush = require("connect-flash");
 var crypto_key = 'secureKey';
 
+
+var secret = require('./models/secret_keys.json');
+
+
 var initial_reg = 0;
 initial_rank = "NIL";
 initial_points = 0;
@@ -23,11 +27,11 @@ var smtpTransport = nodemailer.createTransport({
     secure: true,
     auth: {
         type: 'OAuth2',
-        user: "sandywill6969@gmail.com",
-        clientId: "86824932391-necudl9qj9b35ueob5vb0k5na6s3e7jh.apps.googleusercontent.com",
-        clientSecret: "TaKrqALt41aoYXy1eyMiOYn9",
-        refreshToken: "1//04GxJeZghVU8UCgYIARAAGAQSNwF-L9Ir3DggPOYaPYnpFri2H_FlBxO-PW3uW0K-4F7iMsooQaSQEcHxDuH_-qqEPZlp23Ol2A8",
-        accessToken: "ya29.a0AfH6SMCrlQoFAI2q0l2yDJJw5zzaB-GEGkIlWAkBWdT5pQbSdbnFHlMZuLRK5TXFcdWhKhZW6nf637AKg1y2Npam1ebXnKqPfAniw7fZ1FJn99z37n62cLS13-Fa2C_mgCPlF4gtEH_tIg_fBxb9s2X7HJk_aq6LDQM"
+        user: secret.user,
+        clientId: secret.clientId,
+        clientSecret: secret.clientSecret,
+        refreshToken: secret.refreshToken,
+        accessToken: secret.accessToken
     }
 });
 var rand,mailOptions,host,link;
@@ -87,12 +91,10 @@ app.get("/dashboard", isLoggedIn, function(req, res) {
 
 
 app.get('/login', isLoggedOut, function(req, res){
-    console.log('/login got a request sir.');
     res.render("login.ejs", { string: req.flash('error') });
 });
 
 app.get('/signup', isLoggedOut, function(req, res){
-    console.log('/signup got a request sir.');
     res.render('signup.ejs', { string: req.flash('alert') });
 });
 
@@ -116,7 +118,8 @@ app.post('/login', passport.authenticate('local', {failureRedirect: '/login', fa
     }
     else{
         req.logOut();
-        res.send('<h1>Please verify your email address</h1>');
+        req.flash('error', 'Please verify your email address first')
+        res.redirect('/login');
     }
 });
 
