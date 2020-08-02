@@ -32,12 +32,12 @@
 			   					</div>
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="password" class="form-control" name="password" placeholder="Password" required>
+			   							<input type="password" class="form-control" id="pass" name="password" placeholder="Password" required>
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
 			   						<div class="row">
-			   							<input type="password" class="form-control" name="repass" placeholder="Re-type Password" required>
+										   <input type="password" class="form-control" id="repass" name="repass" placeholder="Re-type Password" required>
 			   						</div>  						
 			   					</div>
 			   					<div class="form-group">
@@ -47,7 +47,7 @@
 			   					</div>
 			   					<div class="form-group">
 			   						<div class="row submit">
-			   							<button  type="submit" class="btn btn-light btn-xl btn-block login_button">Sign Up</button>    	 							
+			   							<button  type="submit" id="sub" class="btn btn-light btn-xl btn-block login_button">Sign Up</button>    	 							
 			   						</div>
 			   					</div>
 							   </form>
@@ -61,6 +61,22 @@
 			<!-- </div>			 -->
 		</div>
 	<!-- </section> -->
+	<script>
+		var password = document.getElementById('pass');
+		var confirm_password = document.getElementById('repass');
+		var submit = document.getElementById('sub');
+		function validatePassword(){
+			if(password.value != confirm_password.value){
+				confirm_password.setCustomValidity("Passwords Don't Match");
+			}
+			else{
+				confirm_password.setCustomValidity('');
+			}
+		}
+		password.onkeyup = validatePassword;
+		confirm_password.onkeyup = validatePassword;
+		submit.onclick = validatePassword;
+	</script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
