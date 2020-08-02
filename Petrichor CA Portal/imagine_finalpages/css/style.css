@@ -4,8 +4,11 @@ body {
   color: gray;
   font-weight: 400;
   font-size: 1rem;
+  background: #212845;
 }
-
+.site-navbar, .site-mobile-menu{
+background: #323964 !important;
+}
 ::-moz-selection {
   background: #000;
   color: #fff;
@@ -15,11 +18,16 @@ body {
   background: #000;
   color: #fff;
 }
-
+#about-section{
+background: #212854 !important;
+}
 a {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
   transition: 0.3s all ease;
+}
+#testimonials-section{
+	background : #212854 !important;
 }
 a:hover {
   text-decoration: none;
