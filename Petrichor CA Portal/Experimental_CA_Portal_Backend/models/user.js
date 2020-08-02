@@ -13,6 +13,7 @@ var userSchema = new mongoose.Schema({
     registrations: Number,
     rank: String,
     token_id: String,
+    changePassToken: String,
 });
 
 userSchema.plugin(passportLocalMongoose);

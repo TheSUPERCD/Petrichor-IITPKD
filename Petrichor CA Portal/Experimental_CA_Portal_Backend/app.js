@@ -47,8 +47,10 @@ mongoose.connect('mongodb+srv://adminuser:adminpass@cluster0-c469f.mongodb.net/C
 
 
 app.use(bodyParser.urlencoded({extended: true}));
+
 app.use(express.static('public'));
 app.use("/admin", express.static("public"));
+
 passport.use(new localStrategy(User.authenticate()));
 app.use(require('express-session')({
     secret: 'secret',
@@ -113,6 +115,12 @@ app.get('/logout', isLoggedIn, function(req, res){
     res.redirect('/login');
 });
 
+app.get('/forgot',function(req, res){
+    res.render('forgot_Password.ejs');
+});
+
+
+
 app.post('/login', passport.authenticate('local', {failureRedirect: '/login', failureFlash: 'Invalid Username or Passsword'}), function(req, res){
     if(req.user.isVerified){
         res.redirect('/dashboard');
@@ -125,6 +133,11 @@ app.post('/login', passport.authenticate('local', {failureRedirect: '/login', fa
 });
 
 app.post('/signup', function(req, res){
+    User.findOneAndRemove({email: req.body.email, isVerified: false}, function(err, docs){
+        if(err){
+            console.log('Error occured in cleansing unverified user operations');
+        }
+    });
     User.find({
         $and: [
             {isVerified : true},
@@ -154,13 +167,14 @@ app.post('/signup', function(req, res){
                     registrations: initial_reg,
                     rank: initial_rank,
                     token_id: get_token(8),
+                    changePassToken: 'INVALID',
                 }),
                 req.body.password, function(err, newuser){
                     if(err){
                         console.log('error in creating a new user');
                     }
                     else{
-                        console.log(newuser);
+                        console.log('new user created');
                     }
                 });
 
@@ -175,18 +189,16 @@ app.post('/signup', function(req, res){
                     subject : "Please confirm your Email account",
                     html : "Hello,<br> Please Click on the link to verify your email.<br><a href="+link+">Click here to verify</a>" 
                 }
-                console.log(mailOptions);
                 smtpTransport.sendMail(mailOptions, function(error, response){
                     if(error){
                         console.log(error);
-                        res.send("error");
+                        req.flash('error', 'Error with sending the verfication mail');
                     }else{
-                        console.log("Message sent: " + response.message);
-                        res.send("Verification mail is sent");
+                        console.log("Verification email sent to : "+req.body.email);
+                        req.flash('error', 'Please verify your email before logging in');
                     }
                 });
-                req.flash('error', 'Please verify your email before logging in');
-                res.redirect('/login')
+                res.redirect('/login');
             }
         }
     });
@@ -207,28 +219,133 @@ app.get('/verify',function(req,res){
         console.log("Domain is matched. Information is from Authentic email");
         console.log(req.query.id.replace(/\s/g, '+'));
         var toVerifyEmail = CryptoJS.AES.decrypt(req.query.id.replace(/\s/g, '+'), crypto_key).toString(CryptoJS.enc.Utf8);
-        console.log(toVerifyEmail);
-        var users = User.find({email: toVerifyEmail});
-        if(users.length !== 0){
-            console.log("email is verified");
-            User.findOneAndUpdate({email: toVerifyEmail}, {isVerified: true}, function(err, result){
-                if(err){
-                    console.log(err);
+        User.find({email: toVerifyEmail}, function(err, users){
+            if(err){
+                console.log(err);
+            }
+            else{
+                if(users.length !== 0){
+                    User.findOneAndUpdate({email: toVerifyEmail}, {isVerified: true}, function(err, result){
+                        if(err){
+                            console.log(err);
+                        }
+                        else{
+                            console.log('Email has been verified');
+                            return res.send("<h1>Email "+toVerifyEmail+" is been Successfully verified");
+                        }
+                    });
                 }
                 else{
-                    return res.send("<h1>Email "+toVerifyEmail+" is been Successfully verified");
+                    console.log("email is not verified");
+                    res.send("<h1>Bad Request</h1>");
                 }
-            });
-        }
-        else{
-            console.log("email is not verified");
-            res.send("<h1>Bad Request</h1>");
-        }
+            }
+        });
     }
     else{
         res.send("<h1>Request is from unknown source");
     }
 });
+
+app.post('/forgot', function (req,res){
+    var passToken = get_PassToken(6);
+    rand=CryptoJS.AES.encrypt(req.body.email, crypto_key).toString();
+    host=req.get('host');
+    link="http://"+req.get('host')+'/changePass?id='+rand;
+    mailOptions={
+        from : secret.user,
+        to : req.body.email,
+        subject : "Request to  change your password",
+        html : "Hello,<br> Please Click on this <a href="+link+">link</a>to change your password.<br>If you did not request this change of password, please ignore this email"
+    }
+    smtpTransport.sendMail(mailOptions, function(error, response){
+    if(error){
+        console.log(error);
+    }
+    else{
+        console.log("Password reset mail is sent");
+    }
+    });
+    User.findOneAndUpdate({email: req.body.email}, {changePassToken: passToken}, function(err, result){
+        if(err){
+            console.log(err);
+        }
+        else{
+            console.log('PassToken updated successfully');
+        }
+    });
+    req.flash('error', 'Password reset link has been sent');
+    res.redirect('/login');
+});
+
+var forgot_email;
+app.get('/changePass',function(req,res){
+    if((req.protocol+"://"+req.get('host'))==("http://"+host)){
+        console.log("Domain is matched. Information is from Authentic email");
+        forgot_email = CryptoJS.AES.decrypt(req.query.id.replace(/\s/g, '+'), crypto_key).toString(CryptoJS.enc.Utf8);
+        User.findOne({email: forgot_email}, function(err, user){
+            if(err){
+                console.log('bad request');
+                res.send("<h1>Bad Request</h1>");
+            }
+            else if(user !== null){
+                console.log('Password reset approved');
+                res.render('change_Password.ejs', {token: '/changePassword/'+user.changePassToken});
+            }
+            else{
+                res.send('<h1>User does not exist</h1>')
+            }
+        });
+    }
+    else{
+        res.send("<h1>Request is from unknown source");
+    }
+});
+
+app.post('/changePassword/:changePassToken', function(req, res){
+    var passToken = req.params.changePassToken;
+    User.findOne({email: forgot_email}, function(err, user){
+        if(err){
+            console.log(err);
+        }
+        else if(user.changePassToken !== passToken){
+            res.send('<h1>Warning : Unauthorized Access</h1><h3>This incident will be reported</h3>');
+        }
+        else{
+            User.findByIdAndRemove({_id: user.id}, 
+                function(err, docs){
+                 if(err){
+                    console.log('error occured in user removing');
+                 } 
+                 else{
+                    console.log('user removed');
+                 }
+             });
+             User.register(new User({
+                name:user.name,
+                username:user.username,
+                email:user.email,
+                isVerified:user.isVerified,
+                college:user.clg,
+                points: user.points,
+                registrations: user.registrations,
+                rank: user.rank,
+                token_id: user.token_id,
+                changePassToken: 'INVALID',
+            }),
+            req.body.password, function(err, newuser){
+                if(err){
+                    console.log('error in creating a new user');
+                }
+                else{
+                    res.send('<h1>Password Changed Successfully</h1>');
+                }
+            });
+        }
+    });
+});
+
+
 
 app.get("/admin/registrations", isLoggedIn, isAdmin, function(req, res) {
     res.render("rank_update.ejs", { message: req.flash('message') });
@@ -330,13 +447,24 @@ function get_token(length) {
             }
             else{
                 console.log('Users with the token id found');
-                get_token(length);
+                result = get_token(length);
             }
         }
     });
     return result;
 }
 
+
+function get_PassToken(length) {
+    var result = "";
+    var characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
 
 function updateRanks(){
     var detail_info = [];
@@ -361,14 +489,16 @@ function updateRanks(){
                         }
                     });
                     for(var i=0; i<detail_info.length; i++){
-                        User.findOneAndUpdate({ username: detail_info[i].username }, { rank: i+1 }, function(error, result) {
-                            if (error) {
-                                console.log('some error occurred with updating ranks');
-                            }
-                            else if (!result) {
-                                console.log('Incorrect Details, No user Exists');
-                            }
-                        });
+                        if(detail_info[i].points !== 0){
+                            User.findOneAndUpdate({ username: detail_info[i].username }, { rank: i+1 }, function(error, result) {
+                                if (error) {
+                                    console.log('some error occurred with updating ranks');
+                                }
+                                else if (!result) {
+                                    console.log('Incorrect Details, No user Exists');
+                                }
+                            });
+                        }
                     }
                 }
             );
@@ -381,6 +511,3 @@ function updateRanks(){
 app.listen(8000, function(){
     console.log('Starting Server.....');
 });
-
-
-
