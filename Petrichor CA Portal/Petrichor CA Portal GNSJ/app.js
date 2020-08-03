@@ -8,8 +8,23 @@ var passportLocalMongoose = require("passport-local-mongoose");
 var LocalStrategy = require("passport-local");
 var flush = require("connect-flash");
 
-var app = express();
+// line number 13-24, 27, 89, 149-156, 213-217
 
+var multer = require("multer");
+
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './uploads/')
+    },
+    filename: function(req, file, cb) {
+        cb(null, file.originalname)
+    }
+})
+
+var upload = multer({ storage: storage })
+
+var app = express();
+app.use("/uploads", express.static("uploads"));
 app.use("/ca-portal/login", express.static("public"));
 app.use("/ca-portal/dashboard", express.static("public"));
 app.use("/ca-portal/registrations", express.static("public"));
@@ -70,7 +85,8 @@ app.post("/ca-portal/signup", function(req, res) {
                 email: req.body.email,
                 registrations: initial_reg,
                 rank: initial_rank,
-                token_id: get_token(8)
+                token_id: get_token(8),
+                profileImage: "//placehold.it/100"
             }),
             req.body.password,
             function(err, user) {
@@ -131,9 +147,13 @@ app.get("/ca-portal/dashboard", isLoggedIn, function(req, res) {
 });
 
 app.get("/ca-portal/profile", isLoggedIn, function(req, res) {
-    res.render("profile.ejs");
+    User.find({ username: "a" }, { profileImage: 1 }, function(err, result) {
+        var image = result[0].profileImage;
+        var Image = "http://" + req.headers.host + "/" + image;
+        console.log(req.headers.host)
+        res.render("profile.ejs", { profile: Image })
+    })
 });
-
 app.get("/ca-portal/registrations", isLoggedIn, function(req, res) {
     res.render("Registrations.ejs");
 });
@@ -189,6 +209,13 @@ app.post("/ca-portal/admin/registrations", function(req, res) {
         }
     });
 });
+
+app.post('/uploadfile', isLoggedIn, upload.single('myFile'), (req, res, next) => {
+    User.findOneAndUpdate({ token_id: "o2Qv7ATT" }, { $set: { profileImage: req.file.path } }, function(err, result) {
+        res.redirect("/ca-portal/profile");
+    });
+})
+
 
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) {

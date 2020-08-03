@@ -18,14 +18,38 @@ p {
 
 .reg {
     background: linear-gradient(45deg, #4099ff, #73b4ff);
+    transition: 1s ease-in;
+}
+
+.reg:hover {
+    background: #5285dd;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
 }
 
 .rank {
     background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+    transition: 1s ease-in;
+}
+
+.rank:hover {
+    background: #20c7a3;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
 }
 
 .point {
     background: linear-gradient(45deg, #FF5370, #ff869a);
+    transition: 1s ease-in;
+}
+
+.point:hover {
+    background: #c93979;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
 }
 
 h1 {
@@ -56,7 +80,7 @@ a:focus {
 
 .card {
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
-    margin: 40px;
+    margin: 30px;
     border-radius: 10px;
     color: white;
     max-width: 300px;
@@ -78,6 +102,11 @@ a:focus {
     background-color: #3b4650;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
     top: 20px;
+    transition: transform 0.5s ease-in;
+}
+
+.token button:hover {
+    transform: translateY(3px);
 }
 
 .card-group {
@@ -121,18 +150,6 @@ span {
     box-shadow: 4px 4px 10px grey;
 }
 
-
-/* .fa-bell {
-    position: absolute;
-    right: 160px;
-} */
-
-
-/* .fa-user {
-    position: absolute;
-    right: 130px;
-} */
-
 .dashboard {
     font-size: 2em;
 }
@@ -151,17 +168,12 @@ span {
     background-color: #3b4650;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
     top: 20px;
+    transition: transform 0.5s ease-in;
 }
 
-
-/* .name {
-    position: absolute;
-    border-radius: 9px;
-    background-color: #3b4650;
-    text-align: center;
-    width: 35%;
-    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
-} */
+.Welcome button:hover {
+    transform: translateY(3px);
+}
 
 .perks {
     position: relative;
@@ -170,23 +182,27 @@ span {
 
 .perks1 {
     background: linear-gradient(135deg, #9b6ad9 0%, #6094ea 100%);
+    transition: 1s ease-in;
+}
+
+.perks1:hover {
+    background: #42dee9;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
 }
 
 .perks2 {
     background: linear-gradient(135deg, #17ead9 0%, #6078ea 100%);
+    transition: 1s ease-in;
 }
 
-
-/* .dropbtn {
-    border: none;
-    cursor: pointer;
-} */
-
-
-/* .dropbtn:hover,
-.dropbtn:focus {
-    background-color: #2980B9;
-} */
+.perks2:hover {
+    background: #9868e6;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
+}
 
 .down2 {
     position: absolute;
@@ -210,33 +226,6 @@ a[aria-expanded="true"] {
 .dropdown-menu {
     left: -100px;
 }
-
-
-/* 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    min-width: 120px;
-    overflow: auto;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-} */
-
-
-/* .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown a:hover {
-    background-color: #ddd;
-}
-
-.show {
-    display: block;
-} */
 
 
 /* ---------------------------------------------------
@@ -455,6 +444,10 @@ a.article:hover {
     }
     #sidebar.active ul li a {
         display: block;
+    }
+    .perks1,
+    .perks2 {
+        width: 265.2px;
     }
 }
 
