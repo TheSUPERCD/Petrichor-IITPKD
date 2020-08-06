@@ -10,7 +10,8 @@ var UserSchema = new mongoose.Schema({
     password: String,
     college: String,
     registrations: Number,
-    rank: String
+    rank: String,
+    profileImage: String
 });
 
 UserSchema.plugin(passportLocalMongoose);
