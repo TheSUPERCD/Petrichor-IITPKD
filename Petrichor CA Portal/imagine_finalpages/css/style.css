@@ -2645,10 +2645,12 @@ h5,
   height: 90%;
 }
 
+h2{
+  color: white !important;
+}
 @media only screen and (min-width: 768px)
 {
 .unit-4{
   min-height: 200px !important;
 }
-
 }
