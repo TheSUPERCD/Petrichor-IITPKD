@@ -6,8 +6,9 @@ body {
   font-size: 1rem;
   background: #212845;
 }
-.site-navbar, .site-mobile-menu{
-background: #323964 !important;
+.site-navbar,
+.site-mobile-menu {
+  background: #323964 !important;
 }
 ::-moz-selection {
   background: #000;
@@ -18,16 +19,16 @@ background: #323964 !important;
   background: #000;
   color: #fff;
 }
-#about-section{
-background: #212854 !important;
+#about-section {
+  background: #212854 !important;
 }
 a {
   -webkit-transition: 0.3s all ease;
   -o-transition: 0.3s all ease;
   transition: 0.3s all ease;
 }
-#testimonials-section{
-	background : #212854 !important;
+#testimonials-section {
+  background: #212854 !important;
 }
 a:hover {
   text-decoration: none;
@@ -56,8 +57,8 @@ h5,
   border-width: 2px;
 }
 
-.text-black {
-  color: #000 !important;
+.text-white {
+  color: white !important;
 }
 
 .bg-black {
@@ -1734,7 +1735,7 @@ h5,
   position: relative;
   top: 0;
   margin-bottom: 4em;
-  text-align: center;
+  text-align: left;
   padding-top: 50px;
 }
 .unit-4 .unit-4-icon {
@@ -1939,19 +1940,23 @@ h5,
 .testimonial {
   max-width: 800px;
   margin: 0 auto !important;
-  text-align: center; }
-  .testimonial blockquote {
-    font-size: 1.5rem;
-    font-style: normal; }
+  text-align: center;
+}
+.testimonial blockquote {
+  font-size: 1.5rem;
+  font-style: normal;
+}
 
-  .testimonial blockquote .answer{
-    font-size: 1.2rem;
-    font-style: normal; }
+.testimonial blockquote .answer {
+  font-size: 1.2rem;
+  font-style: normal;
+}
 
-  .testimonial figure img {
-    max-width: 100px;
-    margin: 0 auto;
-    border-radius: 50%; }
+.testimonial figure img {
+  max-width: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
 
 .breadcrumb-custom {
   font-size: 1rem !important;
@@ -2645,12 +2650,11 @@ h5,
   height: 90%;
 }
 
-h2{
+h2 {
   color: white !important;
 }
-@media only screen and (min-width: 768px)
-{
-.unit-4{
-  min-height: 200px !important;
-}
+@media only screen and (min-width: 768px) {
+  .unit-4 {
+    min-height: 200px !important;
+  }
 }
