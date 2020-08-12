@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/profile.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Font Awesome JS -->
+    
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
 </head>
@@ -73,14 +74,7 @@
   	<hr>
 	<div class="row">
       <!-- left column -->
-      <div class="col-md-3">
-        <div class="text-center">
-          <img src="//placehold.it/100" class="img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
-          
-          <input type="file" class="form-control">
-        </div>
-      </div>
+      
       
       <!-- edit form column -->
       <div class="col-md-9 personal-info">
@@ -90,59 +84,14 @@
           This is an <strong>.alert</strong>. Use this to show important messages to the user.
         </div>
         <h3>Personal info</h3>
+                <img src= <%= profile%> style="widht:auto; height:100px;" class="rounded-circle img-fluid" alt="profile pic">
+               
         
-        <form class="form-horizontal" role="form">
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Name :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">College :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text" >
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Email :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Address :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Contact Number :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" >
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" >
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Save Changes">
-              <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
-            </div>
-          </div>
+        <form action="/uploadfile" enctype="multipart/form-data" method="POST" style="position:relative; top:20px"> 
+           <input type="file" name="myFile" style="display:block;padding: 2px; top: 2px;">
+           <button type="submit" class="btn btn-primary">Upload</button>
         </form>
+ 
       </div>
   </div>
 </div>
