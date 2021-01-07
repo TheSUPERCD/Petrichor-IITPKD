@@ -52,6 +52,19 @@ p {
     top: -5px;
 }
 
+.perks3 {
+    background: #1fc5c0;
+    background: linear-gradient(135deg, #17ead9 0%, #6078ea 100%);
+    transition: 1s ease-in;
+}
+
+.perks3:hover {
+    background: #9868e6;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
+}
+
 h1 {
     color: white;
 }
