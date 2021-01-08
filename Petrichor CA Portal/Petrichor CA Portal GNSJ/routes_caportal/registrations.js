@@ -16,7 +16,6 @@ router.use(
 );
 
 
-
 router.get("/", isLoggedIn, function(req, res) {
     var details;
     mongoose.connect(
@@ -32,7 +31,7 @@ router.get("/", isLoggedIn, function(req, res) {
                     .find({ username: req.user.username })
                     .toArray(function(err, docs) {
                         details = docs;
-                        res.render("Dashboard.ejs", { user_info: details });
+                        res.render("Registrations.ejs", { user_info: details });
                     });
             }
         }

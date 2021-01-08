@@ -9,8 +9,9 @@ var UserSchema = new mongoose.Schema({
     username: String,
     password: String,
     college: String,
-    registrationsOn: Number,
+    totRegis: Number,
     registrations: Number,
+    registrationsOn: Number,
     rank: String,
     profileImage: String
 });

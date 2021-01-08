@@ -61,9 +61,12 @@ span {
 }
 
 .sign-out {
-    border-radius: 5px;
-    background-color: #cdcdcd;
-    box-shadow: 2px 1px;
+    border-radius: 10em;
+    background-color: #2bbbad !important;
+}
+
+.sign-out:hover {
+    box-shadow: 4px 4px 10px grey;
 }
 
 

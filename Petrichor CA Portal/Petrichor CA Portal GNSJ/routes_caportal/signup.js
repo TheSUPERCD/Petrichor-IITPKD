@@ -39,8 +39,9 @@ router.post("/signup", function(req, res) {
                 name: req.body.name,
                 college: req.body.college,
                 email: req.body.email,
-                registrationsOn: initial_regOn,
+                totRegis: initial_reg + initial_regOn,
                 registrations: initial_reg,
+                registrationsOn: initial_regOn,
                 rank: initial_rank,
                 token_id: get_token(8),
                 profileImage: "//placehold.it/100"
