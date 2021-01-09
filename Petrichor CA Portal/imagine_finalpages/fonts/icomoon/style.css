@@ -4555,6 +4555,9 @@
 .ten-plus:before {
   content: "10+";
 }
+.three-plus:before {
+  content: "3+";
+}
 .icon-straighten:before {
   content: "\e41c";
 }
