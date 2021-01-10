@@ -706,17 +706,17 @@ h5,
   padding: 10px 20px;
   display: block;
   position: relative;
-  color: #212529;
+  color: #4285f4;
 }
 .site-mobile-menu .site-nav-wrap a:hover {
-  color: #4285f4;
+  color: white;
 }
 .site-mobile-menu .site-nav-wrap li {
   position: relative;
   display: block;
 }
 .site-mobile-menu .site-nav-wrap li .active {
-  color: #4285f4;
+  color: white;
 }
 .site-mobile-menu .site-nav-wrap .arrow-collapse {
   position: absolute;
