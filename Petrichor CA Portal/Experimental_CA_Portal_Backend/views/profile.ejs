@@ -29,20 +29,20 @@
 
             <ul class="list-unstyled components">
                 <li >
-                    <a href="/dashboard">
+                    <a href="/ca-portal/dashboard">
                         <i class="fas fa-home"></i> Dashboard
                     </a>
                 </li>
                 <li  class="active">
-                    <a href="/profile"> <i class="fas fa-briefcase"></i> Profile </a>
+                    <a href="/ca-portal/profile"> <i class="fas fa-briefcase"></i> Profile </a>
                  </li>
                  <li>   
-                    <a href="/registrations">
+                    <a href="/ca-portal/registrations">
                         <i class="fas fa-copy"></i> Registrations
                     </a>
                 </li>
                 <li>
-                    <a href="/registrations"><i class="fas fa-question"></i> FAQ</a>
+                    <a href="/ca-portal/registrations"><i class="fas fa-question"></i> FAQ</a>
                 </li>
             </ul>
         </nav>
@@ -61,7 +61,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item active">
-                                <a class="nav-link btn sign-out" href="/logout">Sign Out</a>
+                                <a class="nav-link btn sign-out" href="/ca-portal/logout">Sign Out</a>
                             </li>
                         </ul>
                     </div>
@@ -75,10 +75,12 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="//placehold.it/100" class="img-circle" alt="avatar">
-          <h6>Upload a different photo...</h6>
-          
-          <input type="file" class="form-control">
+          <img src= <%= profile %> style="width:200px; height:200px;" class="rounded-circle img-fluid" alt="profile pic">
+          <!-- <h6>Upload a different photo...</h6> -->
+          <form action="/uploadfile" enctype="multipart/form-data" method="POST" style="position:relative; top:20px"> 
+            <input type="file" name="myFile" style="display:block;padding: 2px; top: 2px;">
+            <button type="submit" class="btn btn-primary">Upload</button>
+         </form>
         </div>
       </div>
       
@@ -89,57 +91,40 @@
           <i class="fa fa-coffee"></i>
           This is an <strong>.alert</strong>. Use this to show important messages to the user.
         </div>
+        <span></span>
+        <span></span>
+        <span></span>
         <h3>Personal info</h3>
         
         <form class="form-horizontal" role="form">
           <div class="form-group">
             <label class="col-lg-3 control-label">Name :</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text">
+              <input class="form-control" type="text" placeholder="<%= name %>" required>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">College :</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" >
+              <input class="form-control" type="text" placeholder="<%= college %>" required>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email :</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Address :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-lg-3 control-label">Contact Number :</label>
-            <div class="col-lg-8">
-              <input class="form-control" type="text">
+              <input class="form-control" type="text" placeholder="<%= email %>" required>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label">Password:</label>
             <div class="col-md-8">
-              <input class="form-control" type="password" >
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="col-md-3 control-label">Confirm password:</label>
-            <div class="col-md-8">
-              <input class="form-control" type="password" >
+              <input class="form-control" type="password" required>
             </div>
           </div>
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
               <input type="button" class="btn btn-primary" value="Save Changes">
-              <span></span>
-              <input type="reset" class="btn btn-default" value="Cancel">
             </div>
           </div>
         </form>

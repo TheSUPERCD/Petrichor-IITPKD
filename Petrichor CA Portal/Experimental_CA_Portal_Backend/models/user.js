@@ -14,6 +14,7 @@ var userSchema = new mongoose.Schema({
     rank: String,
     token_id: String,
     changePassToken: String,
+    profileImage: String,
 });
 
 userSchema.plugin(passportLocalMongoose);

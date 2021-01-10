@@ -67,7 +67,7 @@ body {
 }
 
 .incorrect {
-    color: red;
+    color: #CD6157;
     font-weight: bold;
     margin: 0;
 }

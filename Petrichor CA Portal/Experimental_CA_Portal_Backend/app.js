@@ -13,6 +13,28 @@ const user = require('./models/user');
 var flush = require("connect-flash");
 var crypto_key = 'secureKey';
 
+app.use("/ca-portal/login", express.static("public"));
+app.use("/ca-portal/dashboard", express.static("public"));
+app.use("/ca-portal/registrations", express.static("public"));
+app.use("/ca-portal/profile", express.static("public"));
+app.use("/ca-portal/ca-information", express.static("public"));
+app.use("/ca-portal/signup", express.static("public"));
+
+
+var multer = require("multer");
+
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './uploads/')
+    },
+    filename: function(req, file, cb) {
+        cb(null, req.user.username + '.png')
+    }
+})
+
+var upload = multer({ storage: storage })
+app.use("/uploads", express.static("uploads"));
+
 
 var secret = require('./models/secret_keys.json');
 
@@ -70,7 +92,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 
-app.get("/dashboard", isLoggedIn, function(req, res) {
+app.get("/ca-portal/dashboard", isLoggedIn, function(req, res) {
     var details;
     mongoose.connect(
         'mongodb+srv://adminuser:adminpass@cluster0-c469f.mongodb.net/CA_Portal_Users?retryWrites=true&w=majority', {
@@ -79,7 +101,7 @@ app.get("/dashboard", isLoggedIn, function(req, res) {
         },
         function(err, db) {
             if (err) {
-                res.redirect("/login");
+                res.redirect("/ca-portal/login");
             } else {
                 db.collection("users")
                     .find({ username: req.user.username })
@@ -93,46 +115,51 @@ app.get("/dashboard", isLoggedIn, function(req, res) {
 });
 
 
-app.get('/login', isLoggedOut, function(req, res){
+app.get('/ca-portal/login', isLoggedOut, function(req, res){
     res.render("login.ejs", { string: req.flash('error') });
 });
 
-app.get('/signup', isLoggedOut, function(req, res){
+app.get('/ca-portal/signup', isLoggedOut, function(req, res){
     res.render('signup.ejs', { string: req.flash('alert') });
 });
 
-app.get("/profile", isLoggedIn, function(req, res) {
-    res.render("profile.ejs");
+app.get("/ca-portal/profile", isLoggedIn, function(req, res) {
+    // var Image = "http://" + req.headers.host + "/uploads/" + req.user.username + '.png';
+    // res.render("profile.ejs", { profile: Image, name: , college: , email: })
+    User.findOne({ username: req.user.username }, function(err, result) {
+        var Image = "http://" + req.headers.host + "/uploads/" + result.profileImage;
+        res.render("profile.ejs", { profile: Image, name: result.name, college: result.college, email: result.email });
+    });
 });
 
-app.get("/registrations", isLoggedIn, function(req, res) {
+app.get("/ca-portal/registrations", isLoggedIn, function(req, res) {
     res.render("Registrations.ejs");
 });
 
-app.get('/logout', isLoggedIn, function(req, res){
+app.get('/ca-portal/logout', isLoggedIn, function(req, res){
     req.logOut();
     req.flash('error', 'You have logged out successfully');
-    res.redirect('/login');
+    res.redirect('/ca-portal/login');
 });
 
-app.get('/forgot',function(req, res){
+app.get('/ca-portal/forgot',function(req, res){
     res.render('forgot_Password.ejs');
 });
 
 
 
-app.post('/login', passport.authenticate('local', {failureRedirect: '/login', failureFlash: 'Invalid Username or Passsword'}), function(req, res){
+app.post('/ca-portal/login', passport.authenticate('local', {failureRedirect: '/login', failureFlash: 'Invalid Username or Passsword'}), function(req, res){
     if(req.user.isVerified){
-        res.redirect('/dashboard');
+        res.redirect('/ca-portal/dashboard');
     }
     else{
         req.logOut();
         req.flash('error', 'Please verify your email address first')
-        res.redirect('/login');
+        res.redirect('/ca-portal/login');
     }
 });
 
-app.post('/signup', function(req, res){
+app.post('/ca-portal/signup', function(req, res){
     User.findOneAndRemove({email: req.body.email, isVerified: false}, function(err, docs){
         if(err){
             console.log('Error occured in cleansing unverified user operations');
@@ -153,7 +180,7 @@ app.post('/signup', function(req, res){
         else{
             if(user.length !== 0){
                 req.flash('alert', 'Username or Email already in use');
-                res.redirect('/signup'); // username or email already taken
+                res.redirect('/ca-portal/signup'); // username or email already taken
             }
             else{
                 // Registering user
@@ -168,6 +195,7 @@ app.post('/signup', function(req, res){
                     rank: initial_rank,
                     token_id: get_token(8),
                     changePassToken: 'INVALID',
+                    profileImage: 'default.png',
                 }),
                 req.body.password, function(err, newuser){
                     if(err){
@@ -198,19 +226,23 @@ app.post('/signup', function(req, res){
                         req.flash('error', 'Please verify your email before logging in');
                     }
                 });
-                res.redirect('/login');
+                res.redirect('/ca-portal/login');
             }
         }
     });
 });
 
-app.post('/profile_data_post', function(req, res){
+app.post('/ca-portal/profile_data_post', function(req, res){
     console.log('received profile info');
-    res.redirect('/');
+    res.redirect('/ca-portal/profile');
 });
 
 
-
+app.post('/uploadfile', isLoggedIn, upload.single('myFile'), (req, res, next) => {
+    User.findOneAndUpdate({ username : req.user.username }, { $set: { profileImage: req.file.filename } }, function(err, result) {
+        res.redirect("/ca-portal/profile");
+    });
+})
 
 
 
@@ -275,7 +307,7 @@ app.post('/forgot', function (req,res){
         }
     });
     req.flash('error', 'Password reset link has been sent');
-    res.redirect('/login');
+    res.redirect('/ca-portal/login');
 });
 
 var forgot_email;
@@ -407,13 +439,13 @@ function isLoggedIn(req, res, next){
         return next();
     }
     else{
-        res.redirect('/login');
+        res.redirect('/ca-portal/login');
     }
 }
 
 function isLoggedOut(req, res, next){
     if(req.isAuthenticated()){
-        res.redirect('/dashboard');
+        res.redirect('/ca-portal/dashboard');
     }
     else{
         return next();
