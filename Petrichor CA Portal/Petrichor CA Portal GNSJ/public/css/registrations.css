@@ -6,7 +6,7 @@
 body {
     font-family: "Poppins", sans-serif;
     background-color: #ffcfdf;
-    background-image: linear-gradient(315deg, #ffcfdf 0%, #b0f3f1 74%);
+    background-image: linear-gradient(315deg, #55ac76 0%, #bb8dab 74%);
 }
 
 p {
@@ -14,7 +14,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: darkmagenta;
 }
 
 h2 {
@@ -30,8 +30,9 @@ a:focus {
 }
 
 .navbar {
-    padding: 15px 10px;
-    background: #fff;
+    /* padding: 15px 10px; */
+    /* background: #fff; */
+    background: #3b4650 !important;
     border: none;
     border-radius: 5px;
     margin-bottom: 40px;
@@ -42,6 +43,23 @@ a:focus {
     box-shadow: none;
     outline: none !important;
     border: none;
+}
+
+.sign-out {
+    border-radius: 10em;
+    background-color: #2bbbad !important;
+}
+
+.sign-out:hover {
+    box-shadow: 4px 4px 10px grey;
+}
+
+.card {
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+    margin: 30px;
+    border-radius: 10px;
+    color: white;
+    max-width: 300px;
 }
 
 .btn {
@@ -64,6 +82,42 @@ span {
     border-radius: 5px;
     background-color: #cdcdcd;
     box-shadow: 2px 1px;
+}
+
+.reg {
+    background: linear-gradient(45deg, #4099ff, #73b4ff);
+    transition: 1s ease-in;
+}
+
+.reg:hover {
+    background: #5285dd;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
+}
+
+.rank {
+    background: linear-gradient(45deg, #2ed8b6, #59e0c5);
+    transition: 1s ease-in;
+}
+
+.rank:hover {
+    background: #20c7a3;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
+}
+
+.point {
+    background: linear-gradient(45deg, #FF5370, #ff869a);
+    transition: 1s ease-in;
+}
+
+.point:hover {
+    background: #c93979;
+    -webkit-box-shadow: 0 4px 20px -5px rgba(20, 22, 26, 0.4);
+    box-shadow: 0 4px 20px -5px rgba(17, 18, 19, 0.4);
+    top: -5px;
 }
 
 
