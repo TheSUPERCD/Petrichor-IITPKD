@@ -355,16 +355,17 @@ app.post('/changePassword/:changePassToken', function(req, res){
                  }
              });
              User.register(new User({
-                name:user.name,
-                username:user.username,
-                email:user.email,
-                isVerified:user.isVerified,
-                college:user.clg,
+                name: user.name,
+                username: user.username,
+                email: user.email,
+                isVerified: user.isVerified,
+                college: user.college,
                 points: user.points,
                 registrations: user.registrations,
                 rank: user.rank,
                 token_id: user.token_id,
                 changePassToken: 'INVALID',
+                profileImage: user.profileImage,
             }),
             req.body.password, function(err, newuser){
                 if(err){
