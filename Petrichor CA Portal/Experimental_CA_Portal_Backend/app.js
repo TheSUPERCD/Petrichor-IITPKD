@@ -19,6 +19,7 @@ app.use("/ca-portal/registrations", express.static("public"));
 app.use("/ca-portal/profile", express.static("public"));
 app.use("/ca-portal/ca-information", express.static("public"));
 app.use("/ca-portal/signup", express.static("public"));
+app.use("/error_404", express.static("public"));
 
 
 var multer = require("multer");
@@ -426,11 +427,14 @@ app.post("/admin/registrations", function(req, res) {
 });
 
 
+app.get('/error_404', function(req, res){
+    res.render("error_404.ejs");
+});
 
 
 
 app.get('/*', function(req, res){
-    res.send('<h2>ERROR 404 :The page you requested does not exist !</h2>');
+    res.redirect("/error_404");
 });
 
 
