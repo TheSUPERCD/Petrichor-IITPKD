@@ -67,9 +67,10 @@ body {
 }
 
 .incorrect {
-    color: #CD6157;
+    color: #ff0000;
     font-weight: bold;
     margin: 0;
+    text-shadow: 1px 1px 2px black;
 }
 
 @media only screen and (max-width: 768px) {

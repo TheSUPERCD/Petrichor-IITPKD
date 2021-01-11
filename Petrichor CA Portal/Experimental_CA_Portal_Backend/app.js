@@ -169,7 +169,7 @@ app.get('/ca-portal/forgot',function(req, res){
 
 
 
-app.post('/ca-portal/login', passport.authenticate('local', {failureRedirect: '/login', failureFlash: 'Invalid Username or Passsword'}), function(req, res){
+app.post('/ca-portal/login', passport.authenticate('local', {failureRedirect: '/ca-portal/login', failureFlash: 'Invalid Username or Passsword'}), function(req, res){
     if(req.user.isVerified){
         res.redirect('/ca-portal/dashboard');
     }
