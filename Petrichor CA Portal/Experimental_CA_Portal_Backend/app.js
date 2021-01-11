@@ -131,7 +131,7 @@ app.get("/ca-portal/profile", isLoggedIn, function(req, res) {
     // res.render("profile.ejs", { profile: Image, name: , college: , email: })
     User.findOne({ username: req.user.username }, function(err, result) {
         var Image = "http://" + req.headers.host + "/uploads/" + result.profileImage;
-        res.render("profile.ejs", { profile: Image, name: result.name, college: result.college, email: result.email });
+        res.render("profile.ejs", { profile_alert: req.flash('error'), profile: Image, name: result.name, username:result.username, college: result.college, email: result.email, token_id: result.token_id });
     });
 });
 
@@ -175,7 +175,7 @@ app.post('/ca-portal/login', passport.authenticate('local', {failureRedirect: '/
     }
     else{
         req.logOut();
-        req.flash('error', 'Please verify your email address first')
+        req.flash('error', 'Please verify your email address first');
         res.redirect('/ca-portal/login');
     }
 });
@@ -254,9 +254,17 @@ app.post('/ca-portal/signup', function(req, res){
     });
 });
 
-app.post('/ca-portal/profile_data_post', function(req, res){
-    console.log('received profile info');
-    res.redirect('/ca-portal/profile');
+app.post('/ca-portal/profile_data_post', passport.authenticate('local', {failureRedirect: '/ca-portal/profile', failureFlash: 'Invalid Passsword'}), function(req, res){
+    User.findOneAndUpdate({ username: req.user.username }, { name: req.body.name, college: req.body.clg }, function(error, result) {
+        if (error) {
+            req.flash('error', 'Failed To Update Your Profile Info.');
+            console.log("Error occurred in updating profile info");
+            res.redirect("/ca-portal/profile");
+        } else {
+            req.flash('error', 'Your Profile Info. Has Been Successfully Updated');
+            res.redirect('/ca-portal/profile');
+        }
+    });
 });
 
 
