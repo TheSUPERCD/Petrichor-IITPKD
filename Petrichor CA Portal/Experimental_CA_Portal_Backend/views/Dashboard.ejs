@@ -82,7 +82,7 @@
                     </div>
                 </div>
             </nav>
-            <h1 class="dashboard ">Dashboard</h1>
+            <h1 class="dashboard ">CA Portal Dashboard</h1>
             <div class="Welcome">
                 <button>Welcome back <strong><%= user_info[0].name %></strong></button>
             </div>
@@ -91,7 +91,7 @@
                     <div class="card-body ">
                         <h5 class="card-title ">Registrations</h5>
                         <p class="card-text ">Number of registrations :
-                            <%= user_info[0].registrations %>
+                            <%= user_info[0].registrations +user_info[0].registrationsOn %>
                         </p>
                     </div>
                     <div class="card-footer ">
@@ -123,17 +123,20 @@
                 </div>
             </div>
             <div class="token ">
-                <button>Token Id : <%=user_info[0].token_id %> </button>
+                <button>Referral Id : <%= user_info[0].token_id%></button>
             </div>
             <div class="card-group perks">
-                <div class="card perks1 blue-gradient mx-auto" style="border-radius: 10px ">
+                <div class="card perks1 " style="border-radius: 10px ">
                     <div class="card-body ">
                         <h5 class="card-title ">10+ participants</h5>
-                        <% if(user_info[0].points >= 10 ){%>
+                        <h6>(Offline Events)</h6>
+                        <%var WS = user_info[0].registrationsOn; %>
+                        <%var NS = user_info[0].registrations; %>
+                        <% if(NS >= 10 ){%>
                             <p class="card-text ">Current Status : <i class="fa fa-star " style="color: gold; font-size: 24 "></i>
                         </p>
                         <% } %>
-                        <% if(user_info[0].points < 10 ) {%>
+                        <% if(NS < 10 ) {%>
                         <p class="card-text ">Current Status : <i class="fa fa-times" style="color: red"></i>
                         </p>
                         <%}%>
@@ -142,14 +145,32 @@
                         <small class="text-muted ">Petrichor 2021</small>
                     </div>
                 </div>
-                <div class="card perks2 mx-auto" style="border-radius: 10px ">
+                <div class="card perks3" style="border-radius: 10px ">
                     <div class="card-body ">
-                        <h5 class="card-title ">30+ participants</h5>
-                        <% if(user_info[0].points >= 30 ){%>
+                        <h5 class="card-title ">5+ participants</h5>
+                        <h6>(Workshop Events)</h6>
+                        <% if(WS >= 5 ){%>
                             <p class="card-text ">Current Status : <i class="fa fa-star " style="color: gold; font-size: 24 "></i>
                         </p>
                         <% } %>
-                        <% if(user_info[0].points < 30 ) {%>
+                        <% if(WS < 5) {%>
+                        <p class="card-text ">Current Status : <i class="fa fa-times" style="color: red"></i>
+                        </p>
+                        <%}%>
+                    </div>
+                    <div class="card-footer ">
+                        <small class="text-muted ">Petrichor 2021</small>
+                    </div>
+                </div>
+                <div class="card perks2 " style="border-radius: 10px ">
+                    <div class="card-body ">
+                        <h5 class="card-title ">30+ participants</h5>
+                        <h6>(Offline Events)</h6>
+                        <% if(NS >= 30 ){%>
+                            <p class="card-text ">Current Status : <i class="fa fa-star " style="color: gold; font-size: 24 "></i>
+                        </p>
+                        <% } %>
+                        <% if(NS < 30 ) {%>
                         <p class="card-text ">Current Status : <i class="fa fa-times" style="color: red"></i>
                         </p>
                         <%}%>

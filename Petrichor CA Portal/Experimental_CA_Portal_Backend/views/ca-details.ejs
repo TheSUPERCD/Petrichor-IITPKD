@@ -14,7 +14,8 @@
         <th>Token ID</th>
         <th>Username</th>
         <th>E-mail</th>
-        <th>Registrations</th>
+        <th>Online Registrations</th>
+        <th>Offline Registrations</th>
         <th>Points</th>
     </tr>
     <% details.forEach(function(data){%>
@@ -24,6 +25,7 @@
         <td><%= data.token_id%></td>
         <td><%= data.username%></td>
         <td><%= data.email%></td>
+        <td><%= data.registrationsOn%></td>
         <td><%= data.registrations%></td>
         <td><%= data.points%></td>
     </tr>

@@ -11,6 +11,7 @@ var userSchema = new mongoose.Schema({
     password: String,
     points: Number,
     registrations: Number,
+    registrationsOn: Number,
     rank: String,
     token_id: String,
     changePassToken: String,

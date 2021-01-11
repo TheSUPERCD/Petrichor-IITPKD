@@ -17,6 +17,8 @@ app.use("/ca-portal/login", express.static("public"));
 app.use("/ca-portal/dashboard", express.static("public"));
 app.use("/ca-portal/registrations", express.static("public"));
 app.use("/ca-portal/profile", express.static("public"));
+app.use("/admin/registrations", express.static("public"));
+app.use("/admin/ca-information", express.static("public"));
 app.use("/ca-portal/ca-information", express.static("public"));
 app.use("/ca-portal/signup", express.static("public"));
 app.use("/error_404", express.static("public"));
@@ -134,7 +136,25 @@ app.get("/ca-portal/profile", isLoggedIn, function(req, res) {
 });
 
 app.get("/ca-portal/registrations", isLoggedIn, function(req, res) {
-    res.render("Registrations.ejs");
+    var details;
+    mongoose.connect(
+        'mongodb+srv://adminuser:adminpass@cluster0-c469f.mongodb.net/CA_Portal_Users?retryWrites=true&w=majority', {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        },
+        function(err, db) {
+            if (err) {
+                res.redirect("/ca-portal/login");
+            } else {
+                db.collection("users")
+                    .find({ username: req.user.username })
+                    .toArray(function(err, docs) {
+                        details = docs;
+                        res.render("Registrations.ejs", { user_info: details });
+                    });
+            }
+        }
+    );
 });
 
 app.get('/ca-portal/logout', isLoggedIn, function(req, res){
@@ -193,6 +213,7 @@ app.post('/ca-portal/signup', function(req, res){
                     college:req.body.clg,
                     points: initial_points,
                     registrations: initial_reg,
+                    registrationsOn: initial_reg,
                     rank: initial_rank,
                     token_id: get_token(8),
                     changePassToken: 'INVALID',
@@ -362,6 +383,7 @@ app.post('/changePassword/:changePassToken', function(req, res){
                 college: user.college,
                 points: user.points,
                 registrations: user.registrations,
+                registrationsOn: user.registrationsOn,
                 rank: user.rank,
                 token_id: user.token_id,
                 changePassToken: 'INVALID',
@@ -401,6 +423,19 @@ app.get("/admin/ca-information", isLoggedIn, isAdmin, function(req, res) {
                     }
                 },
                 function() {
+                    detail_info.sort(function(a,b){
+                        if(a.points === b.points){
+                            if(a.registrations === b.registrations){
+                                return b.registrationsOn - a.registrationsOn;
+                            }
+                            else{
+                                return b.registrations - a.registrations;
+                            }
+                        }
+                        else{
+                            return b.points - a.points;
+                        }
+                    });
                     res.render("ca-details.ejs", { details: detail_info });
                 }
             );
@@ -410,9 +445,10 @@ app.get("/admin/ca-information", isLoggedIn, isAdmin, function(req, res) {
 
 app.post("/admin/registrations", function(req, res) {
     var token = req.body.token;
-    var num_reg = parseInt(req.body.registrations);
+    var reg_offline = parseInt(req.body.registrations);
+    var reg_online = parseInt(req.body.registrationsOn);
     var points = parseInt(req.body.points);
-    User.findOneAndUpdate({ token_id: token }, { $inc: { registrations: num_reg, points: points } }, function(error, result) {
+    User.findOneAndUpdate({ token_id: token }, { $inc: { registrations: reg_offline, registrationsOn: reg_online, points: points } }, function(error, result) {
         if (error) {
             req.flash('message', 'Submission Failed');
             res.redirect("/admin/registrations");
