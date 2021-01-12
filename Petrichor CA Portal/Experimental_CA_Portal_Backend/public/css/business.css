@@ -1,0 +1,255 @@
+.image_svg {
+    height: 80vh;
+    width: 80vw;
+    position: absolute;
+}
+
+.svg_image svg {
+    position: relative;
+}
+
+@keyframes firstball {
+    0% {
+        transform: translateY(-35px);
+    }
+    100% {
+        transform: translateY(30px);
+    }
+}
+
+@keyframes firstgraph {
+    0% {
+        transform: scaleY(1.5);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+#ball1 {
+    animation: firstball 5s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+#graph1 {
+    position: absolute;
+    transform-origin: bottom;
+    transform-box: fill-box;
+    animation: firstgraph 5s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes secondball {
+    20% {
+        transform: translateY(-80px);
+    }
+    90% {
+        transform: translateY(60px);
+    }
+}
+
+@keyframes secondgraph {
+    10% {
+        transform: scaleY(1.2);
+    }
+    90% {
+        transform: scaleY(0.9);
+    }
+}
+
+#ball2 {
+    animation: secondball 8s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+#graph2 {
+    position: absolute;
+    transform-origin: bottom;
+    transform-box: fill-box;
+    animation: secondgraph 8s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes thridball {
+    20% {
+        transform: translateY(90px);
+    }
+    100% {
+        transform: translateY(-70px);
+    }
+}
+
+@keyframes thridgraph {
+    20% {
+        transform: scaleY(0.8);
+    }
+    100% {
+        transform: scaleY(1.05);
+    }
+}
+
+#ball3 {
+    animation: thridball 10s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+#graph3 {
+    position: absolute;
+    transform-origin: bottom;
+    transform-box: fill-box;
+    animation: thridgraph 10s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes forthball {
+    15% {
+        transform: translateY(100px);
+    }
+    100% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes forthgraph {
+    20% {
+        transform: scaleY(0.7);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+#ball4 {
+    animation: forthball 12s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+#graph4 {
+    position: absolute;
+    transform-origin: bottom;
+    transform-box: fill-box;
+    animation: forthgraph 12s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fifthball {
+    0% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateY(120px);
+    }
+}
+
+@keyframes fifthgraph {
+    20% {
+        transform: scaleY(0.9);
+    }
+    60% {
+        transform: scaleY(0.85);
+    }
+    100% {
+        transform: scaleY(0.8);
+    }
+}
+
+#ball5 {
+    animation: fifthball 13s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+#graph5 {
+    position: absolute;
+    transform-origin: bottom;
+    transform-box: fill-box;
+    animation: fifthgraph 13s ease-in-out alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bodymovement {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(8px, 14px);
+    }
+    50% {
+        transform: translate(17px, 0px);
+    }
+    75% {
+        transform: translate(8px, -14px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+#right_palm,
+#right_hand,
+#left_shoes,
+#right_shoes,
+#leg,
+#neck,
+#stips,
+#body,
+#head,
+#left_palm,
+#left_hand_shadow,
+#left_hand,
+#right_hand_shadow,
+#body {
+    animation: bodymovement 9s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bottompad {
+    0% {
+        transform: translate(0px, 0px);
+    }
+    25% {
+        transform: translate(4px, 7px);
+    }
+    50% {
+        transform: translate(9px, 0px);
+    }
+    75% {
+        transform: translate(4px, -7px);
+    }
+    100% {
+        transform: translate(0px, 0px);
+    }
+}
+
+#Union {
+    animation: bottompad 10s ease-in-out;
+    animation-iteration-count: infinite;
+}
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    .svg_image svg {
+        position: absolute;
+        height: 100vh !important;
+        width: 100vw !important;
+        top: -34% !important;
+        left: -50% !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    .svg_image svg {
+        position: absolute;
+        height: 100vh !important;
+        width: 100vw !important;
+        top: 30%;
+        left: -25%;
+    }
+    .svg_image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .heading_caportal {
+        position: absolute;
+        top: 93px;
+    }
+}

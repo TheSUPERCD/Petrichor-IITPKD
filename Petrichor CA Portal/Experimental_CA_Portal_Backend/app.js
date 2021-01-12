@@ -96,7 +96,7 @@ passport.deserializeUser(User.deserializeUser());
 
 
 app.get('/ca-portal', isLoggedOut, function(req, res){
-    res.send("<h1>CA-Portal Main Page</h1>");
+    res.render('index.ejs');
 });
 
 app.get("/ca-portal/dashboard", isLoggedIn, function(req, res) {
