@@ -13,6 +13,7 @@ const user = require('./models/user');
 var flush = require("connect-flash");
 var crypto_key = 'secureKey';
 
+app.use("/ca-portal", express.static("public"));
 app.use("/ca-portal/login", express.static("public"));
 app.use("/ca-portal/dashboard", express.static("public"));
 app.use("/ca-portal/registrations", express.static("public"));
@@ -94,6 +95,9 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
+app.get('/ca-portal', isLoggedOut, function(req, res){
+    res.send("<h1>CA-Portal Main Page</h1>");
+});
 
 app.get("/ca-portal/dashboard", isLoggedIn, function(req, res) {
     var details;
@@ -293,7 +297,7 @@ app.get('/verify',function(req,res){
                         }
                         else{
                             console.log('Email has been verified');
-                            return res.send("<h1>Email "+toVerifyEmail+" is been Successfully verified");
+                            return res.render('email_success.ejs', { email: toVerifyEmail });
                         }
                     });
                 }
@@ -352,7 +356,7 @@ app.get('/changePass',function(req,res){
             }
             else if(user !== null){
                 console.log('Password reset approved');
-                res.render('change_Password.ejs', {token: '/changePassword/'+user.changePassToken});
+                res.render('reset_password.ejs', {token: '/changePassword/'+user.changePassToken});
             }
             else{
                 res.send('<h1>User does not exist</h1>')
@@ -402,7 +406,7 @@ app.post('/changePassword/:changePassToken', function(req, res){
                     console.log('error in creating a new user');
                 }
                 else{
-                    res.send('<h1>Password Changed Successfully</h1>');
+                    res.render('password_success.ejs');
                 }
             });
         }
@@ -506,7 +510,7 @@ function isAdmin(req, res, next){
         return next();
     }
     else{
-        res.send('You are not allowed to view this page');
+        res.send('<h1>You are not allowed to view this page</h1> <h2>Admin Access Only</h2>');
     }
 }
 
